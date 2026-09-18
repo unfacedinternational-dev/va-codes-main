@@ -220,6 +220,14 @@
             margin: -6px 0 22px 15px;
         }
 
+        .works-note {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.6;
+            margin: -8px 0 22px 15px;
+            max-width: 760px;
+        }
+
         .works-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -481,6 +489,38 @@
             }
         }
 
+        .footer-contact {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 2px;
+        }
+
+        .btn-contact-bottom {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(148, 163, 184, 0.08);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            padding: 9px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .btn-contact-bottom:hover {
+            color: var(--accent);
+            border-color: rgba(56, 189, 248, 0.55);
+            background: rgba(56, 189, 248, 0.08);
+            transform: translateY(-1px);
+        }
+
         .footer-text {
             color: var(--text-muted);
             font-size: 0.85rem;
@@ -497,8 +537,7 @@
             max-width: 720px;
         }
 
-        .service-photo-grid {
-            display: grid;
+        .service-photo-grid {            display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 12px;
         }
@@ -997,7 +1036,6 @@
             .resume-header { flex-direction: column; }
             .resume-contact { text-align: left; }
         }
-
         /* Modal Overlay */
         .modal-overlay {
             display: none;
@@ -1497,8 +1535,7 @@
                     <div class="tech-card" aria-hidden="true">
                         <div class="tech-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="1.8"><path d="M4 3l1.5 17L12 22l6.5-2L20 3H4z"/><path d="M8 8h8l-.4 4.5H9.5M8.6 12.5l.4 5 3 1 3-1 .3-3.5"/></svg></div>
                         <span>HTML5</span>
-                    </div>
-                    <div class="tech-card" aria-hidden="true">
+                    </div>                    <div class="tech-card" aria-hidden="true">
                         <div class="tech-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.8"><path d="M4 3l1.5 17L12 22l6.5-2L20 3H4z"/><path d="M16 8H8l.3 4h7.2l-.4 5-3.1 1-3.1-1-.2-2.3"/></svg></div>
                         <span>CSS3</span>
                     </div>
@@ -1558,7 +1595,8 @@
 
         <!-- Works / Projects Section -->
         <section>
-            <div class="section-title">Featured Works &amp; Live Services</div>
+            <div class="section-title">Recent Works &amp; Deployments</div>
+            <p class="works-note"><em>This section includes recent projects, live deployments, and current works that are still ongoing. If you have any questions about a project or would like to know more, you can message the developer through the contact options below.</em></p>
             
             <div class="works-grid">
                 <!-- Project 1: Tagum LGU Employee Portal -->
@@ -1746,6 +1784,10 @@
 
         <!-- Footer with Developer Button at the bottom -->
         <footer>
+            <div class="footer-contact" aria-label="Contact the developer">
+                <button type="button" class="btn-contact-bottom" onclick="showContactPopup('email')">✉ Email Me</button>
+                <button type="button" class="btn-contact-bottom" onclick="showContactPopup('phone')">☎ Call Me</button>
+            </div>
             <a class="btn-about-bottom" href="about-developer.html">About the Developer</a>
             <div class="footer-text">&copy; 2026 VA Codes Website Development and IT Services. All rights reserved.</div>
         </footer>
@@ -1898,7 +1940,3 @@
             if (menu.classList.contains('is-open') && !dropdown.contains(event.target)) {
                 menu.classList.remove('is-open');
             }
-        }
-    </script>
-</body>
-</html>
