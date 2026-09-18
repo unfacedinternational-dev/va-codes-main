@@ -283,7 +283,21 @@
         .rw-category-sky { color:#38bdf8; } .rw-category-pink { color:#fb7185; }
         .rw-content h3 { font-size:.94rem; line-height:1.25; font-weight:800; color:#fff; margin:0 0 5px; }
         .rw-description { font-size:.76rem; line-height:1.4; color:#cbd5e1; margin:0 0 10px; }
-        .rw-discover { display:inline-flex; align-items:center; border-radius:9999px; background:#0f172a; padding:7px 12px; font-size:.76rem; line-height:1.25; font-weight:700; color:#fff; }
+        .rw-actions { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+        .rw-action { border:0; border-radius:8px; padding:7px 9px; font:inherit; font-size:.68rem; line-height:1.2; font-weight:800; color:#fff; cursor:pointer; transition:transform .18s ease, filter .18s ease; }
+        .rw-action:hover { transform:translateY(-1px); filter:brightness(1.1); }
+        .rw-preview { background:#0284c7; }
+        .rw-deliverables { background:#7c3aed; }
+        .rw-about { background:#d97706; }
+        .rw-action:focus { outline:2px solid #fff; outline-offset:2px; }
+
+        .rw-info-modal { position:relative; width:100%; max-width:620px; background:var(--card-bg); border:1px solid var(--border); border-radius:16px; padding:28px; box-shadow:0 25px 50px rgba(0,0,0,.35); }
+        .rw-info-close { position:absolute; top:14px; right:14px; border:0; border-radius:8px; background:#0f172a; color:#fff; padding:6px 10px; font:inherit; font-weight:700; cursor:pointer; }
+        .rw-info-type { color:var(--accent-warm); font-size:.72rem; font-weight:900; letter-spacing:1.2px; margin-bottom:8px; }
+        .rw-info-modal h3 { color:#fff; font-size:1.35rem; margin:0 60px 14px 0; }
+        .rw-info-body { color:#cbd5e1; font-size:.9rem; line-height:1.6; }
+        .rw-info-body ul { margin:0; padding-left:20px; }
+        .rw-info-body li { margin-bottom:6px; }
         .rw-modal-overlay { position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,.70); padding:16px; display:none; align-items:center; justify-content:center; }
         .rw-modal { width:100%; max-width:1152px; height:85vh; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 25px 50px -12px rgba(0,0,0,.25); }
         .rw-modal-header { height:65px; display:flex; align-items:center; justify-content:space-between; padding:16px 20px; border-bottom:1px solid #e5e7eb; }
@@ -1459,59 +1473,118 @@
         <!-- Recent Works: copied from original VA CODES design -->
 <section class="rw-section">
             <div class="rw-container">
-                <div class="section-title">Recent Works &amp; Deployments</div>
-                <p class="rw-intro"><em>This section may include recent projects, live deployments, and current works that are still ongoing.</em></p>
                 <h2 class="rw-heading">VA CODES Works, Automations, Websites and Deployments</h2>
+                <p class="rw-intro"><em>This section may include recent projects, live deployments, and current works that are still ongoing.</em></p>
                 <div class="rw-grid">
-                    <button type="button" class="rw-card" onclick="openRecentProject(0)">
+                    <article class="rw-card">
                         <div class="rw-cover-wrap"><img src="https://image.thum.io/get/width/1200/crop/800/https://ismex-philippines.vercel.app" alt="Maharlika Philippines" class="rw-cover" data-production-site="https://ismex-philippines.vercel.app"></div>
-                        <div class="rw-content"><p class="rw-category rw-category-sky">Investment App</p><h3>Maharlika Philippines</h3><p class="rw-description">Stockmarketflow, a Philippine investment and portfolio web application with market focused screens.</p><span class="rw-discover">Discover Project →</span></div>
-                    </button>
+                        <div class="rw-content"><p class="rw-category rw-category-sky">Investment App</p><h3>Maharlika Philippines</h3>
+                        <p class="rw-description">Stockmarketflow, a Philippine investment and portfolio web application with market focused screens.</p>
+                        <div class="rw-actions">
+                            <button type="button" class="rw-action rw-preview" onclick="openRecentProject(0)">Preview this project</button>
+                            <button type="button" class="rw-action rw-deliverables" onclick="openProjectInfo(0, 'deliverables')">Deliverables</button>
+                            <button type="button" class="rw-action rw-about" onclick="openProjectInfo(0, 'about')">About this project</button>
+                        </div></div>
+                    </article>
 
-                    <button type="button" class="rw-card" onclick="openRecentProject(1)">
+<article class="rw-card">
                         <div class="rw-cover-wrap"><img src="https://image.thum.io/get/width/1200/crop/800/https://va-codes.vercel.app/" alt="VA CODES" class="rw-cover" data-production-site="https://va-codes.vercel.app/"></div>
-                        <div class="rw-content"><p class="rw-category rw-category-sky">Business Portfolio</p><h3>VA CODES</h3><p class="rw-description">The current VA CODES business portfolio showcasing automation, web development, customer support, and technical services.</p><span class="rw-discover">Discover Project →</span></div>
-                    </button>
+                        <div class="rw-content"><p class="rw-category rw-category-sky">Business Portfolio</p><h3>VA CODES</h3>
+                        <p class="rw-description">The current VA CODES business portfolio showcasing automation, web development, customer support, and technical services.</p>
+                        <div class="rw-actions">
+                            <button type="button" class="rw-action rw-preview" onclick="openRecentProject(1)">Preview this project</button>
+                            <button type="button" class="rw-action rw-deliverables" onclick="openProjectInfo(1, 'deliverables')">Deliverables</button>
+                            <button type="button" class="rw-action rw-about" onclick="openProjectInfo(1, 'about')">About this project</button>
+                        </div></div>
+                    </article>
 
-                    <button type="button" class="rw-card" onclick="openRecentProject(2)">
+<article class="rw-card">
                         <div class="rw-cover-wrap"><img src="https://image.thum.io/get/width/1200/crop/800/https://joy-n-collective.vercel.app/" alt="JOY N COLLECTIVE" class="rw-cover" data-production-site="https://joy-n-collective.vercel.app/"></div>
-                        <div class="rw-content"><p class="rw-category rw-category-pink">E commerce Website</p><h3>JOY N COLLECTIVE</h3><p class="rw-description">A polished online collection experience designed for products, customer discovery, and e commerce presentation.</p><span class="rw-discover">Discover Project →</span></div>
-                    </button>
+                        <div class="rw-content"><p class="rw-category rw-category-pink">E commerce Website</p><h3>JOY N COLLECTIVE</h3>
+                        <p class="rw-description">A polished online collection experience designed for products, customer discovery, and e commerce presentation.</p>
+                        <div class="rw-actions">
+                            <button type="button" class="rw-action rw-preview" onclick="openRecentProject(2)">Preview this project</button>
+                            <button type="button" class="rw-action rw-deliverables" onclick="openProjectInfo(2, 'deliverables')">Deliverables</button>
+                            <button type="button" class="rw-action rw-about" onclick="openProjectInfo(2, 'about')">About this project</button>
+                        </div></div>
+                    </article>
 
-                    <button type="button" class="rw-card" onclick="openRecentProject(3)">
+<article class="rw-card">
                         <div class="rw-cover-wrap"><img src="https://image.thum.io/get/width/1200/crop/800/https://unfacedinternational-dev.github.io/My-petshoponline/" alt="My Pet Shop Online" class="rw-cover" data-production-site="https://unfacedinternational-dev.github.io/My-petshoponline/"></div>
-                        <div class="rw-content"><p class="rw-category rw-category-pink">E commerce Website</p><h3>My Pet Shop Online</h3><p class="rw-description">An online pet shop concept focused on product browsing, shopping experience, and business ready presentation.</p><span class="rw-discover">Discover Project →</span></div>
-                    </button>
+                        <div class="rw-content"><p class="rw-category rw-category-pink">E commerce Website</p><h3>My Pet Shop Online</h3>
+                        <p class="rw-description">An online pet shop concept focused on product browsing, shopping experience, and business ready presentation.</p>
+                        <div class="rw-actions">
+                            <button type="button" class="rw-action rw-preview" onclick="openRecentProject(3)">Preview this project</button>
+                            <button type="button" class="rw-action rw-deliverables" onclick="openProjectInfo(3, 'deliverables')">Deliverables</button>
+                            <button type="button" class="rw-action rw-about" onclick="openProjectInfo(3, 'about')">About this project</button>
+                        </div></div>
+                    </article>
 
-                    <button type="button" class="rw-card" onclick="openRecentProject(4)">
+<article class="rw-card">
                         <div class="rw-cover-wrap"><img src="https://image.thum.io/get/width/1200/crop/800/https://unfacedinternational-dev.github.io/makeup/" alt="Makeup" class="rw-cover" data-production-site="https://unfacedinternational-dev.github.io/makeup/"></div>
-                        <div class="rw-content"><p class="rw-category rw-category-pink">Beauty Website</p><h3>Makeup</h3><p class="rw-description">A product focused beauty project exploring online presentation and customer friendly shopping experiences.</p><span class="rw-discover">Discover Project →</span></div>
-                    </button>
+                        <div class="rw-content"><p class="rw-category rw-category-pink">Beauty Website</p><h3>Makeup</h3>
+                        <p class="rw-description">A product focused beauty project exploring online presentation and customer friendly shopping experiences.</p>
+                        <div class="rw-actions">
+                            <button type="button" class="rw-action rw-preview" onclick="openRecentProject(4)">Preview this project</button>
+                            <button type="button" class="rw-action rw-deliverables" onclick="openProjectInfo(4, 'deliverables')">Deliverables</button>
+                            <button type="button" class="rw-action rw-about" onclick="openProjectInfo(4, 'about')">About this project</button>
+                        </div></div>
+                    </article>
 
-                    <button type="button" class="rw-card" onclick="openRecentProject(5)">
+<article class="rw-card">
                         <div class="rw-cover-wrap"><img src="https://image.thum.io/get/width/1200/crop/800/https://unfacedinternational-dev.github.io/Master-Reference-Sheet/" alt="Master Reference Sheet" class="rw-cover" data-production-site="https://unfacedinternational-dev.github.io/Master-Reference-Sheet/"></div>
-                        <div class="rw-content"><p class="rw-category rw-category-sky">Productivity Tool</p><h3>Master Reference Sheet</h3><p class="rw-description">A structured digital reference project for organizing useful information and operational resources.</p><span class="rw-discover">Discover Project →</span></div>
-                    </button>
+                        <div class="rw-content"><p class="rw-category rw-category-sky">Productivity Tool</p><h3>Master Reference Sheet</h3>
+                        <p class="rw-description">A structured digital reference project for organizing useful information and operational resources.</p>
+                        <div class="rw-actions">
+                            <button type="button" class="rw-action rw-preview" onclick="openRecentProject(5)">Preview this project</button>
+                            <button type="button" class="rw-action rw-deliverables" onclick="openProjectInfo(5, 'deliverables')">Deliverables</button>
+                            <button type="button" class="rw-action rw-about" onclick="openProjectInfo(5, 'about')">About this project</button>
+                        </div></div>
+                    </article>
 
-                    <button type="button" class="rw-card" onclick="openRecentProject(6)">
+<article class="rw-card">
                         <div class="rw-cover-wrap"><img src="https://image.thum.io/get/width/1200/crop/800/https://my-va-profile-portfolio.vercel.app/" alt="VA Profile Portfolio" class="rw-cover" data-production-site="https://my-va-profile-portfolio.vercel.app/"></div>
-                        <div class="rw-content"><p class="rw-category rw-category-sky">Portfolio Website</p><h3>VA Profile Portfolio</h3><p class="rw-description">Personal virtual assistant portfolio showcasing professional capabilities, services, experience, and selected projects.</p><span class="rw-discover">Discover Project →</span></div>
-                    </button>
+                        <div class="rw-content"><p class="rw-category rw-category-sky">Portfolio Website</p><h3>VA Profile Portfolio</h3>
+                        <p class="rw-description">Personal virtual assistant portfolio showcasing professional capabilities, services, experience, and selected projects.</p>
+                        <div class="rw-actions">
+                            <button type="button" class="rw-action rw-preview" onclick="openRecentProject(6)">Preview this project</button>
+                            <button type="button" class="rw-action rw-deliverables" onclick="openProjectInfo(6, 'deliverables')">Deliverables</button>
+                            <button type="button" class="rw-action rw-about" onclick="openProjectInfo(6, 'about')">About this project</button>
+                        </div></div>
+                    </article>
 
-                    <button type="button" class="rw-card" onclick="openRecentProject(7)">
-                        <div class="rw-cover-wrap"><img id="rw-cover-legal" src="https://image.thum.io/get/width/1200/crop/800/https://joy-n-portfolioprofile-legalva.vercel.app" alt="Legal VA Portfolio" class="rw-cover" data-production-site="https://joy-n-portfolioprofile-legalva.vercel.app"></div>
-                        <div class="rw-content"><p class="rw-category rw-category-sky">Portfolio Website</p><h3>Legal VA Portfolio</h3><p class="rw-description">Specialized virtual assistant portfolio focused on legal support services, client support, organization.</p><span class="rw-discover">Discover Project →</span></div>
-                    </button>
+<article class="rw-card">
+                        <div class="rw-cover-wrap"><img src="https://image.thum.io/get/width/1200/crop/800/https://joy-n-portfolioprofile-legalva.vercel.app" alt="Legal VA Portfolio" class="rw-cover" data-production-site="https://joy-n-portfolioprofile-legalva.vercel.app"></div>
+                        <div class="rw-content"><p class="rw-category rw-category-sky">Portfolio Website</p><h3>Legal VA Portfolio</h3>
+                        <p class="rw-description">Specialized virtual assistant portfolio focused on legal support services, client support, organization.</p>
+                        <div class="rw-actions">
+                            <button type="button" class="rw-action rw-preview" onclick="openRecentProject(7)">Preview this project</button>
+                            <button type="button" class="rw-action rw-deliverables" onclick="openProjectInfo(7, 'deliverables')">Deliverables</button>
+                            <button type="button" class="rw-action rw-about" onclick="openProjectInfo(7, 'about')">About this project</button>
+                        </div></div>
+                    </article>
 
-                    <button type="button" class="rw-card" onclick="openRecentProject(8)">
-                        <div class="rw-cover-wrap"><img id="rw-cover-medical" src="https://image.thum.io/get/width/1200/crop/800/https://joy-n-portfolioprofilemedicalva.vercel.app" alt="Medical VA Portfolio" class="rw-cover" data-production-site="https://joy-n-portfolioprofilemedicalva.vercel.app"></div>
-                        <div class="rw-content"><p class="rw-category rw-category-sky">Portfolio Website</p><h3>Medical VA Portfolio</h3><p class="rw-description">Specialized virtual assistant portfolio focused on medical administrative support, organization, communication.</p><span class="rw-discover">Discover Project →</span></div>
-                    </button>
+<article class="rw-card">
+                        <div class="rw-cover-wrap"><img src="https://image.thum.io/get/width/1200/crop/800/https://joy-n-portfolioprofilemedicalva.vercel.app" alt="Medical VA Portfolio" class="rw-cover" data-production-site="https://joy-n-portfolioprofilemedicalva.vercel.app"></div>
+                        <div class="rw-content"><p class="rw-category rw-category-sky">Portfolio Website</p><h3>Medical VA Portfolio</h3>
+                        <p class="rw-description">Specialized virtual assistant portfolio focused on medical administrative support, organization, communication.</p>
+                        <div class="rw-actions">
+                            <button type="button" class="rw-action rw-preview" onclick="openRecentProject(8)">Preview this project</button>
+                            <button type="button" class="rw-action rw-deliverables" onclick="openProjectInfo(8, 'deliverables')">Deliverables</button>
+                            <button type="button" class="rw-action rw-about" onclick="openProjectInfo(8, 'about')">About this project</button>
+                        </div></div>
+                    </article>
 
-                    <button type="button" class="rw-card" onclick="openRecentProject(9)">
+<article class="rw-card">
                         <div class="rw-cover-wrap"><img src="https://image.thum.io/get/width/1200/crop/800/https://joy-n-portfolioprofile-realestateva.vercel.app" alt="Real Estate VA Portfolio" class="rw-cover" data-production-site="https://joy-n-portfolioprofile-realestateva.vercel.app"></div>
-                        <div class="rw-content"><p class="rw-category rw-category-sky">Portfolio Website</p><h3>Real Estate VA Portfolio</h3><p class="rw-description">Specialized virtual assistant portfolio focused on real estate support, listings, client communication.</p><span class="rw-discover">Discover Project →</span></div>
-                    </button>
+                        <div class="rw-content"><p class="rw-category rw-category-sky">Portfolio Website</p><h3>Real Estate VA Portfolio</h3>
+                        <p class="rw-description">Specialized virtual assistant portfolio focused on real estate support, listings, client communication.</p>
+                        <div class="rw-actions">
+                            <button type="button" class="rw-action rw-preview" onclick="openRecentProject(9)">Preview this project</button>
+                            <button type="button" class="rw-action rw-deliverables" onclick="openProjectInfo(9, 'deliverables')">Deliverables</button>
+                            <button type="button" class="rw-action rw-about" onclick="openProjectInfo(9, 'about')">About this project</button>
+                        </div></div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -1524,6 +1597,15 @@
                     <button type="button" onclick="closeRecentProject()" class="rw-close">Close</button>
                 </div>
                 <iframe id="recentProjectFrame" title="Recent project preview"></iframe>
+            </div>
+        </div>
+
+        <div class="rw-modal-overlay" id="projectInfoOverlay" aria-hidden="true" onclick="if(event.target===this) closeProjectInfo()">
+            <div class="rw-info-modal" role="dialog" aria-modal="true" aria-labelledby="projectInfoTitle" onclick="event.stopPropagation()">
+                <button type="button" class="rw-info-close" onclick="closeProjectInfo()">Close</button>
+                <p id="projectInfoType" class="rw-info-type"></p>
+                <h3 id="projectInfoTitle"></h3>
+                <div id="projectInfoBody" class="rw-info-body"></div>
             </div>
         </div>
 
@@ -1657,6 +1739,30 @@
             { name: 'Real Estate VA Portfolio', site: 'https://joy-n-portfolioprofile-realestateva.vercel.app' }
         ];
 
+        const PROJECT_DETAILS = [{"name":"Maharlika Philippines","category":"Investment App","about":"Stockmarketflow, a Philippine investment and portfolio web application with market focused screens.","deliverables":["Live production deployment","Responsive web interface","Project implementation and presentation"]},{"name":"VA CODES","category":"Business Portfolio","about":"The current VA CODES business portfolio showcasing automation, web development, customer support, and technical services.","deliverables":["Live production deployment","Responsive web interface","Project implementation and presentation"]},{"name":"JOY N COLLECTIVE","category":"E commerce Website","about":"A polished online collection experience designed for products, customer discovery, and e commerce presentation.","deliverables":["Live production deployment","Responsive web interface","Project implementation and presentation"]},{"name":"My Pet Shop Online","category":"E commerce Website","about":"An online pet shop concept focused on product browsing, shopping experience, and business ready presentation.","deliverables":["Live production deployment","Responsive web interface","Project implementation and presentation"]},{"name":"Makeup","category":"Beauty Website","about":"A product focused beauty project exploring online presentation and customer friendly shopping experiences.","deliverables":["Live production deployment","Responsive web interface","Project implementation and presentation"]},{"name":"Master Reference Sheet","category":"Productivity Tool","about":"A structured digital reference project for organizing useful information and operational resources.","deliverables":["Live production deployment","Responsive web interface","Project implementation and presentation"]},{"name":"VA Profile Portfolio","category":"Portfolio Website","about":"Personal virtual assistant portfolio showcasing professional capabilities, services, experience, and selected projects.","deliverables":["Live production deployment","Responsive web interface","Project implementation and presentation"]},{"name":"Legal VA Portfolio","category":"Portfolio Website","about":"Specialized virtual assistant portfolio focused on legal support services, client support, organization.","deliverables":["Live production deployment","Responsive web interface","Project implementation and presentation"]},{"name":"Medical VA Portfolio","category":"Portfolio Website","about":"Specialized virtual assistant portfolio focused on medical administrative support, organization, communication.","deliverables":["Live production deployment","Responsive web interface","Project implementation and presentation"]},{"name":"Real Estate VA Portfolio","category":"Portfolio Website","about":"Specialized virtual assistant portfolio focused on real estate support, listings, client communication.","deliverables":["Live production deployment","Responsive web interface","Project implementation and presentation"]}];
+
+        function openProjectInfo(index, type) {
+            const project = PROJECT_DETAILS[index];
+            if (!project) return;
+            document.getElementById('projectInfoTitle').textContent = project.name;
+            document.getElementById('projectInfoType').textContent = type === 'deliverables' ? 'DELIVERABLES' : 'ABOUT THIS PROJECT';
+            document.getElementById('projectInfoBody').innerHTML = type === 'deliverables'
+                ? '<ul>' + project.deliverables.map(item => '<li>' + item + '</li>').join('') + '</ul>'
+                : '<p>' + project.about + '</p><p><strong>Category:</strong> ' + project.category + '</p>';
+            document.getElementById('projectInfoOverlay').style.display = 'flex';
+            document.getElementById('projectInfoOverlay').setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectInfo() {
+            const overlay = document.getElementById('projectInfoOverlay');
+            if (overlay) {
+                overlay.style.display = 'none';
+                overlay.setAttribute('aria-hidden', 'true');
+            }
+            document.body.style.overflow = '';
+        }
+
         function openRecentProject(index) {
             const project = RECENT_WORKS_PROJECTS[index];
             if (!project) return;
@@ -1689,6 +1795,7 @@
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeRecentProject();
+                closeProjectInfo();
                 closeContactPopup();
                 closeModal();
             }
