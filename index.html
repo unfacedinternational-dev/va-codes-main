@@ -228,203 +228,202 @@
             max-width: 760px;
         }
 
-        .works-grid {
+        /* Recent Works: original VA CODES design */
+        .rw-section {
+            padding: 80px 16px;
+            background: #ffffff;
+        }
+
+        .rw-container {
+            max-width: 1152px;
+            margin: 0 auto;
+        }
+
+        .rw-heading {
+            font-size: 30px;
+            font-weight: 900;
+            text-align: center;
+            margin: 0 0 48px;
+            color: #0f172a;
+            line-height: 1.25;
+        }
+
+        .rw-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
         }
 
-        .work-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
+        .rw-card {
+            width: 100%;
+            padding: 0;
             overflow: hidden;
-            transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+            border-radius: 16px;
+            border: 2px solid #e0f2fe;
+            background: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.10), 0 2px 4px -2px rgba(15, 23, 42, 0.10);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            text-align: left;
+            font: inherit;
+            color: inherit;
+            display: block;
         }
 
-        .work-card::before {
-            content: "";
+        .rw-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.10), 0 8px 10px -6px rgba(15, 23, 42, 0.10);
+        }
+
+        .rw-card:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px #bae6fd;
+        }
+
+        .rw-cover-wrap {
+            position: relative;
+            height: 192px;
+            overflow: hidden;
+            background: #f1f5f9;
+        }
+
+        .rw-cover {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-warm));
-            transform: scaleX(0);
-            transform-origin: left;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.3s ease;
         }
 
-        .work-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--border-glow);
-            background: var(--card-bg-hover);
-            box-shadow: 0 20px 40px -20px rgba(56, 189, 248, 0.25);
+        .rw-card:hover .rw-cover {
+            transform: scale(1.10);
         }
 
-        .work-card:hover::before {
-            transform: scaleX(1);
+        .rw-content {
+            padding: 20px;
         }
 
-        .work-cover {
-            width: 100%;
-            aspect-ratio: 1200 / 630;
-            object-fit: cover;
-            display: block;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            border: 1px solid var(--border);
+        .rw-category {
+            font-size: 12px;
+            font-weight: 900;
+            margin: 0 0 8px;
         }
 
-        .category-badge {
-            display: inline-block;
-            background: rgba(56, 189, 248, 0.12);
-            color: var(--accent);
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.68rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 4px 10px;
-            border-radius: 20px;
-            margin-bottom: 14px;
+        .rw-category-sky {
+            color: #0284c7;
         }
 
-        .work-card h3 {
-            font-size: 1.2rem;
+        .rw-category-pink {
+            color: #ec4899;
+        }
+
+        .rw-content h3 {
+            font-size: 20px;
+            line-height: 1.25;
+            font-weight: 900;
+            color: #0f172a;
+            margin: 0 0 8px;
+        }
+
+        .rw-description {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #4b5563;
+            margin: 0 0 16px;
+        }
+
+        .rw-discover {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 9999px;
+            background: #0f172a;
+            padding: 8px 16px;
+            font-size: 14px;
+            line-height: 1.25;
             font-weight: 700;
-            margin-bottom: 10px;
             color: #ffffff;
         }
 
-        .work-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
+        .rw-modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.70);
+            padding: 16px;
+            display: none;
+            align-items: center;
+            justify-content: center;
         }
 
-        .work-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .tag {
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent);
-            font-size: 0.75rem;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-
-        .work-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.68rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
-
-        .work-tags {
-            margin-bottom: 18px;
-        }
-
-        .work-deliverables {
-            list-style: none;
-            margin-bottom: 20px;
-        }
-
-        .work-deliverables li {
-            color: var(--text-muted);
-            font-size: 0.88rem;
-            padding-left: 16px;
-            position: relative;
-            margin-bottom: 6px;
-            line-height: 1.5;
-        }
-
-        .work-deliverables li::before {
-            content: "▹";
-            color: var(--accent-warm);
-            position: absolute;
-            left: 0;
-        }
-
-        .btn-view {
-            background: transparent;
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            padding: 10px 16px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-align: center;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-
-        .btn-view:hover {
-            background: var(--accent);
-            color: #0b0f19;
-            box-shadow: 0 8px 20px -8px rgba(56, 189, 248, 0.6);
-        }
-
-        .work-actions {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .work-actions .btn-view {
-            flex: 1 1 auto;
-        }
-
-        .btn-about {
-            background: transparent;
-            color: var(--text-muted);
-            border: 1px solid var(--border);
-            padding: 10px 16px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
-            flex: 1 1 auto;
-            font-family: inherit;
-        }
-
-        .btn-about:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        .btn-about[aria-expanded="true"] {
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent);
-            border-color: var(--accent);
-        }
-
-        .work-info {
-            max-height: 0;
+        .rw-modal {
+            width: 100%;
+            max-width: 1152px;
+            height: 85vh;
+            background: #ffffff;
+            border-radius: 16px;
             overflow: hidden;
-            opacity: 0;
-            transition: max-height 0.35s ease, opacity 0.3s ease, margin-top 0.35s ease;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
 
-        .work-info.open {
-            max-height: 900px;
-            opacity: 1;
-            margin-top: 18px;
+        .rw-modal-header {
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .rw-modal-header h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 900;
+            color: #0f172a;
+        }
+
+        .rw-close {
+            padding: 4px 12px;
+            border: 0;
+            border-radius: 8px;
+            background: #0f172a;
+            color: #ffffff;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .rw-modal iframe {
+            display: block;
+            width: 100%;
+            height: calc(100% - 65px);
+            border: 0;
+            background: #ffffff;
+        }
+
+        @media (max-width: 1023px) {
+            .rw-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 639px) {
+            .rw-section {
+                padding: 80px 16px;
+            }
+
+            .rw-heading {
+                font-size: 18px;
+                margin-bottom: 48px;
+            }
+
+            .rw-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rw-cover-wrap {
+                height: 192px;
+            }
         }
 
         /* Footer Bottom Area */
@@ -1283,15 +1282,6 @@
             border-color: var(--accent-warm);
         }
 
-        /* Recent Works live preview */
-        .project-preview-modal{background:var(--card-bg);border:1px solid var(--border);width:min(1100px,96vw);height:min(88vh,900px);border-radius:16px;overflow:hidden;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.55);display:flex;flex-direction:column}
-        .project-preview-header{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:18px 52px 18px 24px;border-bottom:1px solid var(--border);flex:none}
-        .project-preview-header h2{font-size:1.35rem;color:#fff;margin:4px 0 0}
-        .project-preview-frame-wrap{min-height:0;flex:1;background:#fff}
-        .project-preview-frame-wrap iframe{width:100%;height:100%;border:0;background:#fff}
-        body.preview-open{overflow:hidden}
-        @media(max-width:650px){.project-preview-modal{width:100vw;height:92vh;border-radius:12px}.project-preview-header{align-items:flex-start;flex-direction:column;padding:18px 48px 16px 18px}.project-preview-header .btn-view{width:100%;justify-content:center}}
-
         /* Other Services / Ad Section */
         .ad-grid {
             display: grid;
@@ -1599,248 +1589,72 @@
             </div>
         </section>
 
-        <!-- Works / Projects Section -->
-        <section>
-            <div class="section-title">Recent Works &amp; Deployments</div>
-            <p class="works-note"><em>This section may include recent projects, live deployments, and current works that are still ongoing. If you have any questions about a project or would like to know more, you can message the developer through the contact options below.</em></p>
-            <div class="works-grid">
-<div class="work-card">
-  <div>
-   <img src="https://www.philstocks.ph/media/1154/laptop3revised.gif" alt="Maharlika Philippines cover" class="work-cover">
-   <span class="category-badge">Investment App</span>
-   <h3>Maharlika Philippines</h3>
-   <p>Stockmarketflow, a Philippine investment and portfolio web application with market focused screens.</p>
-   <div class="work-info" id="work-info-1">
-  <div class="work-label">Project Logic &amp; Design</div>
-  <p>A market focused investment and portfolio application designed to present Philippine investment information through structured screens for browsing market related data and portfolio views.</p>
-  <div class="work-label">Deliverables</div>
-  <ul class="work-deliverables"><li>Responsive investment interface</li><li>Market and portfolio screens</li><li>Structured financial information presentation</li><li>Application navigation and user interface</li><li>Production deployment</li></ul>
-  <div class="work-label">Technology / Composition</div>
-  <div class="work-tags"><span class="tag">TypeScript 72%</span><span class="tag">JavaScript 15%</span><span class="tag">CSS 8%</span><span class="tag">HTML 5%</span></div>
- </div>
-  </div>
-  <div class="work-actions">
-   <button type="button" class="btn-about" aria-expanded="false" aria-controls="work-info-1" onclick="toggleWorkInfo(this, 'work-info-1')">About this work</button>
-   <button type="button" class="btn-about" onclick="openProjectPreview(1)">Preview Project</button>
-   <a href="https://ismex-philippines.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-view">View Live Project</a>
-  </div>
- </div>
+        <!-- Recent Works: copied from original VA CODES design -->
+        <section class="rw-section">
+            <div class="rw-container">
+                <h2 class="rw-heading">VA CODES Recent Works: Automations, Websites, and Deployments</h2>
+                <div class="rw-grid">
+                    <button type="button" class="rw-card" onclick="openRecentProject(0)">
+                        <div class="rw-cover-wrap"><img src="https://www.philstocks.ph/media/1154/laptop3revised.gif" alt="Maharlika Philippines" class="rw-cover"></div>
+                        <div class="rw-content"><p class="rw-category rw-category-sky">Investment App</p><h3>Maharlika Philippines</h3><p class="rw-description">Stockmarketflow, a Philippine investment and portfolio web application with market focused screens.</p><span class="rw-discover">Discover Project →</span></div>
+                    </button>
 
-<div class="work-card">
-  <div>
-   <img src="https://graphiste.com/blog/wp-content/uploads/sites/4/2016/02/theme-prestashop-1.jpg" alt="JOY N COLLECTIVE cover" class="work-cover">
-   <span class="category-badge">E commerce Website</span>
-   <h3>JOY N COLLECTIVE</h3>
-   <p>A polished online collection experience designed for products, customer discovery, and e commerce presentation.</p>
-   <div class="work-info" id="work-info-2">
-  <div class="work-label">Project Logic &amp; Design</div>
-  <p>A branded e commerce experience built around product discovery, collection presentation, navigation, and a polished customer facing storefront.</p>
-  <div class="work-label">Deliverables</div>
-  <ul class="work-deliverables"><li>Responsive storefront</li><li>Product and collection presentation</li><li>Navigation and customer discovery flow</li><li>Promotional and branded sections</li><li>Production deployment</li></ul>
-  <div class="work-label">Technology / Composition</div>
-  <div class="work-tags"><span class="tag">TypeScript 70%</span><span class="tag">JavaScript 15%</span><span class="tag">CSS 10%</span><span class="tag">HTML 5%</span></div>
- </div>
-  </div>
-  <div class="work-actions">
-   <button type="button" class="btn-about" aria-expanded="false" aria-controls="work-info-2" onclick="toggleWorkInfo(this, 'work-info-2')">About this work</button>
-   <button type="button" class="btn-about" onclick="openProjectPreview(2)">Preview Project</button>
-   <a href="https://joy-n-collective.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-view">View Live Project</a>
-  </div>
- </div>
+                    <button type="button" class="rw-card" onclick="openRecentProject(1)">
+                        <div class="rw-cover-wrap"><img src="https://fal.media/files/tiger/sWGFB_hr6lYKa3RXQAfy-_4b6d65e4f9f34be298e47444f2bad563.jpg" alt="VA CODES" class="rw-cover"></div>
+                        <div class="rw-content"><p class="rw-category rw-category-sky">Business Portfolio</p><h3>VA CODES</h3><p class="rw-description">The current VA CODES business portfolio showcasing automation, web development, customer support, and technical services.</p><span class="rw-discover">Discover Project →</span></div>
+                    </button>
 
-<div class="work-card">
-  <div>
-   <img src="https://i.ebayimg.com/images/g/x6kAAOSwwUpnEyhr/s-l1200.png" alt="My Pet Shop Online cover" class="work-cover">
-   <span class="category-badge">E commerce Website</span>
-   <h3>My Pet Shop Online</h3>
-   <p>An online pet shop concept focused on product browsing, shopping experience, and business ready presentation.</p>
-   <div class="work-info" id="work-info-3">
-  <div class="work-label">Project Logic &amp; Design</div>
-  <p>A complete pet supply storefront with a branded landing experience, category aisles, product presentation, cart drawer, quantity controls, checkout flow, order confirmation, and responsive layouts.</p>
-  <div class="work-label">Deliverables</div>
-  <ul class="work-deliverables"><li>Pet supply storefront</li><li>Product category navigation</li><li>Product cards and shopping interface</li><li>Cart drawer with quantity controls</li><li>Checkout interaction and order confirmation</li><li>Responsive layout and animation</li></ul>
-  <div class="work-label">Technology / Composition</div>
-  <div class="work-tags"><span class="tag">HTML 100%</span></div>
- </div>
-  </div>
-  <div class="work-actions">
-   <button type="button" class="btn-about" aria-expanded="false" aria-controls="work-info-3" onclick="toggleWorkInfo(this, 'work-info-3')">About this work</button>
-   <button type="button" class="btn-about" onclick="openProjectPreview(3)">Preview Project</button>
-   <a href="https://unfacedinternational-dev.github.io/My-petshoponline/" target="_blank" rel="noopener noreferrer" class="btn-view">View Live Project</a>
-  </div>
- </div>
+                    <button type="button" class="rw-card" onclick="openRecentProject(2)">
+                        <div class="rw-cover-wrap"><img src="https://graphiste.com/blog/wp-content/uploads/sites/4/2016/02/theme-prestashop-1.jpg" alt="JOY N COLLECTIVE" class="rw-cover"></div>
+                        <div class="rw-content"><p class="rw-category rw-category-pink">E commerce Website</p><h3>JOY N COLLECTIVE</h3><p class="rw-description">A polished online collection experience designed for products, customer discovery, and e commerce presentation.</p><span class="rw-discover">Discover Project →</span></div>
+                    </button>
 
-<div class="work-card">
-  <div>
-   <img src="https://cdn.dribbble.com/userupload/37946276/file/original-d8b9c90f96b792ff74c22a515d6f0848.png" alt="Makeup cover" class="work-cover">
-   <span class="category-badge">E commerce Website</span>
-   <h3>Makeup</h3>
-   <p>A product focused beauty project exploring online presentation and customer friendly shopping experiences.</p>
-   <div class="work-info" id="work-info-4">
-  <div class="work-label">Project Logic &amp; Design</div>
-  <p>A cosmetics storefront named Blush & Bone. The code includes a product catalog, category filtering, product data, account and order persistence through a browser storage layer, interactive catalog behavior, and a customer facing shopping experience.</p>
-  <div class="work-label">Deliverables</div>
-  <ul class="work-deliverables"><li>Cosmetics product catalog</li><li>Category based product browsing</li><li>Product and shade presentation</li><li>Browser based account and order persistence</li><li>Interactive storefront components</li><li>Responsive customer experience</li></ul>
-  <div class="work-label">Technology / Composition</div>
-  <div class="work-tags"><span class="tag">JavaScript 78%</span><span class="tag">HTML 15%</span><span class="tag">CSS 7%</span></div>
- </div>
-  </div>
-  <div class="work-actions">
-   <button type="button" class="btn-about" aria-expanded="false" aria-controls="work-info-4" onclick="toggleWorkInfo(this, 'work-info-4')">About this work</button>
-   <button type="button" class="btn-about" onclick="openProjectPreview(4)">Preview Project</button>
-   <a href="https://unfacedinternational-dev.github.io/makeup/" target="_blank" rel="noopener noreferrer" class="btn-view">View Live Project</a>
-  </div>
- </div>
+                    <button type="button" class="rw-card" onclick="openRecentProject(3)">
+                        <div class="rw-cover-wrap"><img src="https://i.ebayimg.com/images/g/x6kAAOSwwUpnEyhr/s-l1200.png" alt="My Pet Shop Online" class="rw-cover"></div>
+                        <div class="rw-content"><p class="rw-category rw-category-pink">E commerce Website</p><h3>My Pet Shop Online</h3><p class="rw-description">An online pet shop concept focused on product browsing, shopping experience, and business ready presentation.</p><span class="rw-discover">Discover Project →</span></div>
+                    </button>
 
-<div class="work-card">
-  <div>
-   <img src="https://image.thum.io/get/width/800/crop/700/https://va-codes.vercel.app/" alt="VA CODES cover" class="work-cover">
-   <span class="category-badge">Business Website</span>
-   <h3>VA CODES</h3>
-   <p>The current VA CODES business portfolio showcasing automation, web development, customer support, and technical services.</p>
-   <div class="work-info" id="work-info-5">
-  <div class="work-label">Project Logic &amp; Design</div>
-  <p>The main VA CODES business website presenting automation, web development, web applications, business systems, integrations, maintenance, customer support, technical support, and a live project portfolio.</p>
-  <div class="work-label">Deliverables</div>
-  <ul class="work-deliverables"><li>Responsive business website</li><li>Service presentation system</li><li>Project portfolio cards and live previews</li><li>Contact form and email workflow</li><li>Interactive project showcase</li><li>Vercel production deployment</li></ul>
-  <div class="work-label">Technology / Composition</div>
-  <div class="work-tags"><span class="tag">TypeScript 91%</span><span class="tag">CSS 6%</span><span class="tag">JavaScript 3%</span></div>
- </div>
-  </div>
-  <div class="work-actions">
-   <button type="button" class="btn-about" aria-expanded="false" aria-controls="work-info-5" onclick="toggleWorkInfo(this, 'work-info-5')">About this work</button>
-   <button type="button" class="btn-about" onclick="openProjectPreview(5)">Preview Project</button>
-   <a href="https://va-codes.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-view">View Live Project</a>
-  </div>
- </div>
+                    <button type="button" class="rw-card" onclick="openRecentProject(4)">
+                        <div class="rw-cover-wrap"><img src="https://cdn.dribbble.com/userupload/37946276/file/original-d8b9c90f96b792ff74c22a515d6f0848.png" alt="Makeup" class="rw-cover"></div>
+                        <div class="rw-content"><p class="rw-category rw-category-pink">Beauty Website</p><h3>Makeup</h3><p class="rw-description">A product focused beauty project exploring online presentation and customer friendly shopping experiences.</p><span class="rw-discover">Discover Project →</span></div>
+                    </button>
 
-<div class="work-card">
-  <div>
-   <img src="https://neotechnavigators.com/wp-content/uploads/2025/01/Employee-Productivity-Dashboard-in-Google-Sheets-2.jpg" alt="Master Reference Sheet cover" class="work-cover">
-   <span class="category-badge">Reference Website</span>
-   <h3>Master Reference Sheet</h3>
-   <p>A structured digital reference project for organizing useful information and operational resources.</p>
-   <div class="work-info" id="work-info-6">
-  <div class="work-label">Project Logic &amp; Design</div>
-  <p>A large HTML based technical reference sheet covering HTML inputs, metadata, accessibility, interactive widgets, performance, forms, semantic elements, code examples, and practical reference material.</p>
-  <div class="work-label">Deliverables</div>
-  <ul class="work-deliverables"><li>HTML reference documentation</li><li>Searchable reference structure</li><li>Code examples</li><li>Accessibility examples</li><li>Interactive HTML examples</li><li>Print optimized layout</li></ul>
-  <div class="work-label">Technology / Composition</div>
-  <div class="work-tags"><span class="tag">HTML 100%</span></div>
- </div>
-  </div>
-  <div class="work-actions">
-   <button type="button" class="btn-about" aria-expanded="false" aria-controls="work-info-6" onclick="toggleWorkInfo(this, 'work-info-6')">About this work</button>
-   <button type="button" class="btn-about" onclick="openProjectPreview(6)">Preview Project</button>
-   <a href="https://unfacedinternational-dev.github.io/Master-Reference-Sheet/" target="_blank" rel="noopener noreferrer" class="btn-view">View Live Project</a>
-  </div>
- </div>
+                    <button type="button" class="rw-card" onclick="openRecentProject(5)">
+                        <div class="rw-cover-wrap"><img src="https://neotechnavigators.com/wp-content/uploads/2025/01/Employee-Productivity-Dashboard-in-Google-Sheets-2.jpg" alt="Master Reference Sheet" class="rw-cover"></div>
+                        <div class="rw-content"><p class="rw-category rw-category-sky">Productivity Tool</p><h3>Master Reference Sheet</h3><p class="rw-description">A structured digital reference project for organizing useful information and operational resources.</p><span class="rw-discover">Discover Project →</span></div>
+                    </button>
 
-<div class="work-card">
-  <div>
-   <img src="https://image.thum.io/get/width/800/crop/450/https://my-va-profile-portfolio.vercel.app/" alt="VA Profile Portfolio cover" class="work-cover">
-   <span class="category-badge">Portfolio Website</span>
-   <h3>VA Profile Portfolio</h3>
-   <p>Personal virtual assistant portfolio showcasing professional capabilities, services, experience, and selected projects.</p>
-   <div class="work-info" id="work-info-7">
-  <div class="work-label">Project Logic &amp; Design</div>
-  <p>A professional profile website built as a digital portfolio with structured personal presentation, service areas, project links, contact elements, visual cards, and interactive portfolio content.</p>
-  <div class="work-label">Deliverables</div>
-  <ul class="work-deliverables"><li>Personal portfolio interface</li><li>Professional profile presentation</li><li>Service and capability sections</li><li>Project and website links</li><li>Responsive visual design</li><li>Interactive contact and inquiry elements</li></ul>
-  <div class="work-label">Technology / Composition</div>
-  <div class="work-tags"><span class="tag">HTML 100%</span></div>
- </div>
-  </div>
-  <div class="work-actions">
-   <button type="button" class="btn-about" aria-expanded="false" aria-controls="work-info-7" onclick="toggleWorkInfo(this, 'work-info-7')">About this work</button>
-   <button type="button" class="btn-about" onclick="openProjectPreview(7)">Preview Project</button>
-   <a href="https://my-va-profile-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-view">View Live Project</a>
-  </div>
- </div>
+                    <button type="button" class="rw-card" onclick="openRecentProject(6)">
+                        <div class="rw-cover-wrap"><img src="https://virtualstafffinder.com/assets/hero-person-CoyDBMo3.jpg" alt="VA Profile Portfolio" class="rw-cover"></div>
+                        <div class="rw-content"><p class="rw-category rw-category-sky">Portfolio Website</p><h3>VA Profile Portfolio</h3><p class="rw-description">Personal virtual assistant portfolio showcasing professional capabilities, services, experience, and selected projects.</p><span class="rw-discover">Discover Project →</span></div>
+                    </button>
 
-<div class="work-card">
-  <div>
-   <img src="https://joy-n-portfolioprofilemedicalva.vercel.app/profile.jpg" alt="Legal VA Portfolio cover" class="work-cover">
-   <span class="category-badge">Portfolio Website</span>
-   <h3>Legal VA Portfolio</h3>
-   <p>Specialized virtual assistant portfolio focused on legal support services, client support, organization.</p>
-   <div class="work-info" id="work-info-8">
-  <div class="work-label">Project Logic &amp; Design</div>
-  <p>A specialized professional portfolio presenting legal support capabilities through a dedicated visual experience and a law office client portal sample workflow.</p>
-  <div class="work-label">Deliverables</div>
-  <ul class="work-deliverables"><li>Legal support portfolio interface</li><li>Law office client portal presentation</li><li>Client intake workflow presentation</li><li>Case file organization presentation</li><li>Scheduling and coordination workflow</li><li>Responsive deployment</li></ul>
-  <div class="work-label">Technology / Composition</div>
-  <div class="work-tags"><span class="tag">HTML 100%</span></div>
- </div>
-  </div>
-  <div class="work-actions">
-   <button type="button" class="btn-about" aria-expanded="false" aria-controls="work-info-8" onclick="toggleWorkInfo(this, 'work-info-8')">About this work</button>
-   <button type="button" class="btn-about" onclick="openProjectPreview(8)">Preview Project</button>
-   <a href="https://joy-n-portfolioprofile-legalva.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-view">View Live Project</a>
-  </div>
- </div>
+                    <button type="button" class="rw-card" onclick="openRecentProject(7)">
+                        <div class="rw-cover-wrap"><img id="rw-cover-legal" src="https://joy-n-portfolioprofilemedicalva.vercel.app/profile.jpg" alt="Legal VA Portfolio" class="rw-cover"></div>
+                        <div class="rw-content"><p class="rw-category rw-category-sky">Portfolio Website</p><h3>Legal VA Portfolio</h3><p class="rw-description">Specialized virtual assistant portfolio focused on legal support services, client support, organization.</p><span class="rw-discover">Discover Project →</span></div>
+                    </button>
 
-<div class="work-card">
-  <div>
-   <img src="https://joy-n-portfolioprofilemedicalva.vercel.app/profile.jpg" alt="Medical VA Portfolio cover" class="work-cover">
-   <span class="category-badge">Portfolio Website</span>
-   <h3>Medical VA Portfolio</h3>
-   <p>Specialized virtual assistant portfolio focused on medical administrative support, organization, communication.</p>
-   <div class="work-info" id="work-info-9">
-  <div class="work-label">Project Logic &amp; Design</div>
-  <p>A specialized medical support portfolio presenting patient coordination, information organization, scheduling, communication, and administrative workflow examples.</p>
-  <div class="work-label">Deliverables</div>
-  <ul class="work-deliverables"><li>Medical support portfolio interface</li><li>Patient coordination presentation</li><li>Information and records organization</li><li>Scheduling workflow presentation</li><li>Communication workflow presentation</li><li>Responsive deployment</li></ul>
-  <div class="work-label">Technology / Composition</div>
-  <div class="work-tags"><span class="tag">HTML 100%</span></div>
- </div>
-  </div>
-  <div class="work-actions">
-   <button type="button" class="btn-about" aria-expanded="false" aria-controls="work-info-9" onclick="toggleWorkInfo(this, 'work-info-9')">About this work</button>
-   <button type="button" class="btn-about" onclick="openProjectPreview(9)">Preview Project</button>
-   <a href="https://joy-n-portfolioprofilemedicalva.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-view">View Live Project</a>
-  </div>
- </div>
+                    <button type="button" class="rw-card" onclick="openRecentProject(8)">
+                        <div class="rw-cover-wrap"><img id="rw-cover-medical" src="https://joy-n-portfolioprofilemedicalva.vercel.app/profile.jpg" alt="Medical VA Portfolio" class="rw-cover"></div>
+                        <div class="rw-content"><p class="rw-category rw-category-sky">Portfolio Website</p><h3>Medical VA Portfolio</h3><p class="rw-description">Specialized virtual assistant portfolio focused on medical administrative support, organization, communication.</p><span class="rw-discover">Discover Project →</span></div>
+                    </button>
 
-<div class="work-card">
-  <div>
-   <img src="https://image.thum.io/get/width/800/crop/450/https://joy-n-portfolioprofile-realestateva.vercel.app" alt="Real Estate VA Portfolio cover" class="work-cover">
-   <span class="category-badge">Portfolio Website</span>
-   <h3>Real Estate VA Portfolio</h3>
-   <p>Specialized virtual assistant portfolio focused on real estate support, listings, client communication.</p>
-   <div class="work-info" id="work-info-10">
-  <div class="work-label">Project Logic &amp; Design</div>
-  <p>A specialized real estate portfolio presenting property listings, client communication, research, and transaction support workflows through a dedicated professional interface.</p>
-  <div class="work-label">Deliverables</div>
-  <ul class="work-deliverables"><li>Real estate portfolio interface</li><li>Property listing presentation</li><li>Client communication workflow</li><li>Lead and property research presentation</li><li>Transaction support workflow</li><li>Responsive deployment</li></ul>
-  <div class="work-label">Technology / Composition</div>
-  <div class="work-tags"><span class="tag">HTML 100%</span></div>
- </div>
-  </div>
-  <div class="work-actions">
-   <button type="button" class="btn-about" aria-expanded="false" aria-controls="work-info-10" onclick="toggleWorkInfo(this, 'work-info-10')">About this work</button>
-   <button type="button" class="btn-about" onclick="openProjectPreview(10)">Preview Project</button>
-   <a href="https://joy-n-portfolioprofile-realestateva.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-view">View Live Project</a>
-  </div>
- </div>
-
+                    <button type="button" class="rw-card" onclick="openRecentProject(9)">
+                        <div class="rw-cover-wrap"><img src="https://joy-n-portfolioprofile-realestateva.vercel.app/Profile%20Pic%20.jpg" alt="Real Estate VA Portfolio" class="rw-cover"></div>
+                        <div class="rw-content"><p class="rw-category rw-category-sky">Portfolio Website</p><h3>Real Estate VA Portfolio</h3><p class="rw-description">Specialized virtual assistant portfolio focused on real estate support, listings, client communication.</p><span class="rw-discover">Discover Project →</span></div>
+                    </button>
+                </div>
             </div>
         </section>
 
-        <!-- Project Preview Modal -->        <!-- Project Preview Modal -->
-        <div class="modal-overlay" id="projectPreviewOverlay" aria-hidden="true">
-            <div class="project-preview-modal" role="dialog" aria-modal="true" aria-labelledby="projectPreviewTitle">
-                <button type="button" class="close-modal" onclick="closeProjectPreview()" aria-label="Close project preview">&times;</button>
-                <div class="project-preview-header">
-                    <div>
-                        <span class="category-badge" id="projectPreviewCategory"></span>
-                        <h2 id="projectPreviewTitle"></h2>
-                    </div>
-                    <a id="projectPreviewLiveLink" class="btn-view" target="_blank" rel="noopener noreferrer">View Live Project</a>
+        <!-- Recent Works Project Preview -->
+        <div class="rw-modal-overlay" id="recentProjectOverlay" aria-hidden="true" onclick="if(event.target===this) closeRecentProject()">
+            <div class="rw-modal" role="dialog" aria-modal="true" aria-labelledby="recentProjectTitle" onclick="event.stopPropagation()">
+                <div class="rw-modal-header">
+                    <h3 id="recentProjectTitle"></h3>
+                    <button type="button" onclick="closeRecentProject()" class="rw-close">Close</button>
                 </div>
-                <div class="project-preview-frame-wrap">
-                    <iframe id="projectPreviewFrame" title="Live project preview" loading="lazy"></iframe>
-                </div>
+                <iframe id="recentProjectFrame" title="Recent project preview"></iframe>
             </div>
         </div>
 
@@ -1961,38 +1775,66 @@
     </div>
 
     <script>
-        function toggleWorkInfo(btn, id) {
-            const info = document.getElementById(id);
-            const isOpen = info.classList.toggle('open');
-            btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-            btn.textContent = isOpen ? 'Hide details' : 'About this work';
-        }
-        const VA_CODES_PROJECTS = [{"name":"Maharlika Philippines","cat":"Investment App","desc":"Stockmarketflow, a Philippine investment and portfolio web application with market focused screens.","icon":"📈","site":"https://ismex-philippines.vercel.app","cover":"https://www.philstocks.ph/media/1154/laptop3revised.gif","about":"A market focused investment and portfolio application designed to present Philippine investment information through structured screens for browsing market related data and portfolio views.","del":["Responsive investment interface","Market and portfolio screens","Structured financial information presentation","Application navigation and user interface","Production deployment"],"langs":["TypeScript 72%","JavaScript 15%","CSS 8%","HTML 5%"]},{"name":"JOY N COLLECTIVE","cat":"E commerce Website","desc":"A polished online collection experience designed for products, customer discovery, and e commerce presentation.","icon":"🛍️","site":"https://joy-n-collective.vercel.app/","cover":"https://graphiste.com/blog/wp-content/uploads/sites/4/2016/02/theme-prestashop-1.jpg","about":"A branded e commerce experience built around product discovery, collection presentation, navigation, and a polished customer facing storefront.","del":["Responsive storefront","Product and collection presentation","Navigation and customer discovery flow","Promotional and branded sections","Production deployment"],"langs":["TypeScript 70%","JavaScript 15%","CSS 10%","HTML 5%"]},{"name":"My Pet Shop Online","cat":"E commerce Website","desc":"An online pet shop concept focused on product browsing, shopping experience, and business ready presentation.","icon":"🐾","site":"https://unfacedinternational-dev.github.io/My-petshoponline/","cover":"https://i.ebayimg.com/images/g/x6kAAOSwwUpnEyhr/s-l1200.png","about":"A complete pet supply storefront with a branded landing experience, category aisles, product presentation, cart drawer, quantity controls, checkout flow, order confirmation, and responsive layouts.","del":["Pet supply storefront","Product category navigation","Product cards and shopping interface","Cart drawer with quantity controls","Checkout interaction and order confirmation","Responsive layout and animation"],"langs":["HTML 100%"]},{"name":"Makeup","cat":"E commerce Website","desc":"A product focused beauty project exploring online presentation and customer friendly shopping experiences.","icon":"💄","site":"https://unfacedinternational-dev.github.io/makeup/","cover":"https://cdn.dribbble.com/userupload/37946276/file/original-d8b9c90f96b792ff74c22a515d6f0848.png","about":"A cosmetics storefront named Blush & Bone. The code includes a product catalog, category filtering, product data, account and order persistence through a browser storage layer, interactive catalog behavior, and a customer facing shopping experience.","del":["Cosmetics product catalog","Category based product browsing","Product and shade presentation","Browser based account and order persistence","Interactive storefront components","Responsive customer experience"],"langs":["JavaScript 78%","HTML 15%","CSS 7%"]},{"name":"VA CODES","cat":"Business Website","desc":"The current VA CODES business portfolio showcasing automation, web development, customer support, and technical services.","icon":"💻","site":"https://va-codes.vercel.app/","cover":"https://image.thum.io/get/width/800/crop/700/https://va-codes.vercel.app/","about":"The main VA CODES business website presenting automation, web development, web applications, business systems, integrations, maintenance, customer support, technical support, and a live project portfolio.","del":["Responsive business website","Service presentation system","Project portfolio cards and live previews","Contact form and email workflow","Interactive project showcase","Vercel production deployment"],"langs":["TypeScript 91%","CSS 6%","JavaScript 3%"]},{"name":"Master Reference Sheet","cat":"Reference Website","desc":"A structured digital reference project for organizing useful information and operational resources.","icon":"📋","site":"https://unfacedinternational-dev.github.io/Master-Reference-Sheet/","cover":"https://neotechnavigators.com/wp-content/uploads/2025/01/Employee-Productivity-Dashboard-in-Google-Sheets-2.jpg","about":"A large HTML based technical reference sheet covering HTML inputs, metadata, accessibility, interactive widgets, performance, forms, semantic elements, code examples, and practical reference material.","del":["HTML reference documentation","Searchable reference structure","Code examples","Accessibility examples","Interactive HTML examples","Print optimized layout"],"langs":["HTML 100%"]},{"name":"VA Profile Portfolio","cat":"Portfolio Website","desc":"Personal virtual assistant portfolio showcasing professional capabilities, services, experience, and selected projects.","icon":"👩‍💻","site":"https://my-va-profile-portfolio.vercel.app/","cover":"https://image.thum.io/get/width/800/crop/450/https://my-va-profile-portfolio.vercel.app/","about":"A professional profile website built as a digital portfolio with structured personal presentation, service areas, project links, contact elements, visual cards, and interactive portfolio content.","del":["Personal portfolio interface","Professional profile presentation","Service and capability sections","Project and website links","Responsive visual design","Interactive contact and inquiry elements"],"langs":["HTML 100%"]},{"name":"Legal VA Portfolio","cat":"Portfolio Website","desc":"Specialized virtual assistant portfolio focused on legal support services, client support, organization.","icon":"⚖️","site":"https://joy-n-portfolioprofile-legalva.vercel.app","cover":"https://joy-n-portfolioprofilemedicalva.vercel.app/profile.jpg","about":"A specialized professional portfolio presenting legal support capabilities through a dedicated visual experience and a law office client portal sample workflow.","del":["Legal support portfolio interface","Law office client portal presentation","Client intake workflow presentation","Case file organization presentation","Scheduling and coordination workflow","Responsive deployment"],"langs":["HTML 100%"]},{"name":"Medical VA Portfolio","cat":"Portfolio Website","desc":"Specialized virtual assistant portfolio focused on medical administrative support, organization, communication.","icon":"🩺","site":"https://joy-n-portfolioprofilemedicalva.vercel.app","cover":"https://joy-n-portfolioprofilemedicalva.vercel.app/profile.jpg","about":"A specialized medical support portfolio presenting patient coordination, information organization, scheduling, communication, and administrative workflow examples.","del":["Medical support portfolio interface","Patient coordination presentation","Information and records organization","Scheduling workflow presentation","Communication workflow presentation","Responsive deployment"],"langs":["HTML 100%"]},{"name":"Real Estate VA Portfolio","cat":"Portfolio Website","desc":"Specialized virtual assistant portfolio focused on real estate support, listings, client communication.","icon":"🏠","site":"https://joy-n-portfolioprofile-realestateva.vercel.app","cover":"https://image.thum.io/get/width/800/crop/450/https://joy-n-portfolioprofile-realestateva.vercel.app","about":"A specialized real estate portfolio presenting property listings, client communication, research, and transaction support workflows through a dedicated professional interface.","del":["Real estate portfolio interface","Property listing presentation","Client communication workflow","Lead and property research presentation","Transaction support workflow","Responsive deployment"],"langs":["HTML 100%"]},];
-        function openProjectPreview(index) {
-            const project = VA_CODES_PROJECTS[index - 1];
+        const RECENT_WORKS_PROJECTS = [
+            { name: 'Maharlika Philippines', site: 'https://ismex-philippines.vercel.app' },
+            { name: 'VA CODES', site: 'https://va-codes.vercel.app/' },
+            { name: 'JOY N COLLECTIVE', site: 'https://joy-n-collective.vercel.app/' },
+            { name: 'My Pet Shop Online', site: 'https://unfacedinternational-dev.github.io/My-petshoponline/' },
+            { name: 'Makeup', site: 'https://unfacedinternational-dev.github.io/makeup/' },
+            { name: 'Master Reference Sheet', site: 'https://unfacedinternational-dev.github.io/Master-Reference-Sheet/' },
+            { name: 'VA Profile Portfolio', site: 'https://my-va-profile-portfolio.vercel.app/' },
+            { name: 'Legal VA Portfolio', site: 'https://joy-n-portfolioprofile-legalva.vercel.app' },
+            { name: 'Medical VA Portfolio', site: 'https://joy-n-portfolioprofilemedicalva.vercel.app' },
+            { name: 'Real Estate VA Portfolio', site: 'https://joy-n-portfolioprofile-realestateva.vercel.app' }
+        ];
+
+        const RECENT_WORKS_ROTATING_COVERS = {
+            legal: [
+                'https://image.thum.io/get/width/800/crop/450/https://joy-n-portfolioprofile-legalva.vercel.app',
+                'https://image.thum.io/get/width/800/crop/700/https://joy-n-portfolioprofile-legalva.vercel.app',
+                'https://image.thum.io/get/width/800/crop/1000/https://joy-n-portfolioprofile-legalva.vercel.app'
+            ],
+            medical: [
+                'https://image.thum.io/get/width/800/crop/450/https://joy-n-portfolioprofilemedicalva.vercel.app',
+                'https://image.thum.io/get/width/800/crop/700/https://joy-n-portfolioprofilemedicalva.vercel.app',
+                'https://image.thum.io/get/width/800/crop/1000/https://joy-n-portfolioprofilemedicalva.vercel.app'
+            ]
+        };
+
+        let recentWorksImageIndex = 0;
+
+        function openRecentProject(index) {
+            const project = RECENT_WORKS_PROJECTS[index];
             if (!project) return;
-            document.getElementById('projectPreviewCategory').textContent = project.cat;
-            document.getElementById('projectPreviewTitle').textContent = project.icon + ' ' + project.name;
-            document.getElementById('projectPreviewLiveLink').href = project.site;
-            document.getElementById('projectPreviewFrame').src = project.site;
-            document.getElementById('projectPreviewOverlay').style.display = 'flex';
-            document.getElementById('projectPreviewOverlay').setAttribute('aria-hidden','false');
-            document.body.classList.add('preview-open');
+            document.getElementById('recentProjectTitle').textContent = project.name;
+            document.getElementById('recentProjectFrame').src = project.site;
+            document.getElementById('recentProjectOverlay').style.display = 'flex';
+            document.getElementById('recentProjectOverlay').setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
         }
-        function closeProjectPreview() {
-            const overlay=document.getElementById('projectPreviewOverlay');
-            const frame=document.getElementById('projectPreviewFrame');
-            if(frame) frame.src='about:blank';
-            overlay.style.display='none';
-            overlay.setAttribute('aria-hidden','true');
-            document.body.classList.remove('preview-open');
+
+        function closeRecentProject() {
+            const overlay = document.getElementById('recentProjectOverlay');
+            const frame = document.getElementById('recentProjectFrame');
+            if (frame) frame.src = 'about:blank';
+            if (overlay) {
+                overlay.style.display = 'none';
+                overlay.setAttribute('aria-hidden', 'true');
+            }
+            document.body.style.overflow = '';
         }
-        document.getElementById('projectPreviewOverlay').addEventListener('click',function(event){
-            if(event.target===this) closeProjectPreview();
-        });
-        document.addEventListener('keydown',function(event){
-            if(event.key==='Escape') {
-                closeProjectPreview();
+
+        window.setInterval(function() {
+            recentWorksImageIndex += 1;
+            const legal = document.getElementById('rw-cover-legal');
+            const medical = document.getElementById('rw-cover-medical');
+            if (legal) legal.src = RECENT_WORKS_ROTATING_COVERS.legal[recentWorksImageIndex % RECENT_WORKS_ROTATING_COVERS.legal.length];
+            if (medical) medical.src = RECENT_WORKS_ROTATING_COVERS.medical[recentWorksImageIndex % RECENT_WORKS_ROTATING_COVERS.medical.length];
+        }, 3500);
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeRecentProject();
                 closeContactPopup();
                 closeModal();
             }
