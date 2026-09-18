@@ -488,17 +488,99 @@
 
 
         /* Services photo showcase */
-        .services-showcase { margin-bottom: 40px; }
-        .services-showcase-intro { color: var(--text-muted); font-size: 0.95rem; margin: -8px 0 22px 15px; max-width: 720px; }
-        .service-photo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-        .service-photo-card { min-height: 360px; border-radius: 16px; overflow: hidden; position: relative; background-size: cover; background-position: center; border: 1px solid rgba(56,189,248,.35); box-shadow: 0 14px 35px rgba(0,0,0,.22); isolation: isolate; transition: transform .25s ease,border-color .25s ease,box-shadow .25s ease; }
-        .service-photo-card::before { content:""; position:absolute; inset:0; background:linear-gradient(to bottom,rgba(2,6,23,.02) 30%,rgba(2,6,23,.5) 100%); z-index:-1; }
-        .service-photo-card:hover { transform:translateY(-6px); border-color:rgba(56,189,248,.8); box-shadow:0 22px 45px rgba(56,189,248,.16); }
-        .service-photo-overlay { position:absolute; left:14px; right:14px; bottom:14px; padding:20px; border-radius:14px; background:rgba(255,255,255,.94); color:#0b0f19; border:2px solid rgba(56,189,248,.55); box-shadow:0 12px 28px rgba(0,0,0,.22); backdrop-filter:blur(7px); }
-        .service-photo-overlay h3 { margin:0 0 8px; font-size:1.08rem; font-weight:800; color:#0f172a; }
-        .service-photo-overlay p { margin:0; color:#334155; font-size:.88rem; line-height:1.55; }
-        @media (max-width:850px) { .service-photo-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
-        @media (max-width:560px) { .service-photo-grid { grid-template-columns:1fr; } .service-photo-card { min-height:330px; } }
+        .services-showcase { margin-bottom: 34px; }
+
+        .services-showcase-intro {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: -8px 0 18px 15px;
+            max-width: 720px;
+        }
+
+        .service-photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .service-photo-card {
+            min-height: 285px;
+            border-radius: 14px;
+            overflow: hidden;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            border: 3px solid transparent;
+            background-clip: padding-box;
+            box-shadow: 0 8px 22px rgba(0,0,0,.2), 0 0 0 1px rgba(167,139,250,.45);
+            isolation: isolate;
+            transition: transform .22s ease, box-shadow .22s ease;
+        }
+
+        .service-photo-card::after {
+            content:"";
+            position:absolute;
+            inset:-3px;
+            border-radius:16px;
+            padding:3px;
+            background:linear-gradient(135deg,#38bdf8,#a78bfa,#fb7185,#38bdf8);
+            -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+            -webkit-mask-composite:xor;
+            mask-composite:exclude;
+            pointer-events:none;
+            z-index:3;
+        }
+
+        .service-photo-card::before {
+            content:"";
+            position:absolute;
+            inset:0;
+            background:linear-gradient(to bottom,rgba(2,6,23,.02) 24%,rgba(2,6,23,.48) 100%);
+            z-index:-1;
+        }
+
+        .service-photo-card:hover {
+            transform:translateY(-4px);
+            box-shadow:0 14px 30px rgba(56,189,248,.14),0 0 0 2px rgba(251,113,133,.25);
+        }
+
+        .service-photo-overlay {
+            position:absolute;
+            left:10px;
+            right:10px;
+            bottom:10px;
+            padding:14px 15px;
+            border-radius:11px;
+            background:rgba(255,255,255,.95);
+            color:#0b0f19;
+            border:2px solid rgba(56,189,248,.7);
+            box-shadow:0 8px 18px rgba(0,0,0,.2);
+            backdrop-filter:blur(6px);
+            z-index:2;
+        }
+
+        .service-photo-overlay h3 {
+            margin:0 0 5px;
+            font-size:.98rem;
+            font-weight:800;
+            color:#0f172a;
+        }
+
+        .service-photo-overlay p {
+            margin:0;
+            color:#334155;
+            font-size:.8rem;
+            line-height:1.45;
+        }
+
+        @media (max-width:850px) {
+            .service-photo-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+        }
+
+        @media (max-width:560px) {
+            .service-photo-grid { grid-template-columns:1fr; gap:12px; }
+            .service-photo-card { min-height:270px; }
+        }
 
         /* Services / Promo Section */
         .promo {
@@ -1468,7 +1550,7 @@
                 <article class="service-photo-card" style="background-image:url('https://images.pexels.com/photos/5466250/pexels-photo-5466250.jpeg?auto=compress&cs=tinysrgb&w=1400');"><div class="service-photo-overlay"><h3>Business Systems</h3><p>Dashboards, internal systems, and tools that organize information and operations.</p></div></article>
                 <article class="service-photo-card" style="background-image:url('https://images.pexels.com/photos/29502362/pexels-photo-29502362.jpeg?auto=compress&cs=tinysrgb&w=1400');"><div class="service-photo-overlay"><h3>E commerce Solutions</h3><p>Online stores with polished customer experiences and business ready functionality.</p></div></article>
                 <article class="service-photo-card" style="background-image:url('https://images.pexels.com/photos/2881233/pexels-photo-2881233.jpeg?auto=compress&cs=tinysrgb&w=1400');"><div class="service-photo-overlay"><h3>API &amp; Integrations</h3><p>Connect platforms and services so information moves where it needs to go.</p></div></article>
-                <article class="service-photo-card" style="background-image:url('https://images.pexels.com/photos/7639373/pexels-photo-7639373.jpeg?auto=compress&cs=tinysrgb&w=1400');"><div class="service-photo-overlay"><h3>Website Maintenance</h3><p>Ongoing updates, improvements, troubleshooting, and technical website support.</p></div></article>
+                <article class="service-photo-card" style="background-image:url('https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1400');"><div class="service-photo-overlay"><h3>Website Maintenance</h3><p>Ongoing updates, improvements, troubleshooting, and technical website support.</p></div></article>
                 <article class="service-photo-card" style="background-image:url('https://images.pexels.com/photos/7682211/pexels-photo-7682211.jpeg?auto=compress&cs=tinysrgb&w=1400');"><div class="service-photo-overlay"><h3>Customer Support</h3><p>Pre sales and post sales support, customer inquiries, email and chat assistance.</p></div></article>
                 <article class="service-photo-card" style="background-image:url('https://images.pexels.com/photos/6804590/pexels-photo-6804590.jpeg?auto=compress&cs=tinysrgb&w=1400');"><div class="service-photo-overlay"><h3>Technical Support</h3><p>Practical technical assistance for digital operations, systems, and business needs.</p></div></article>
             </div>
