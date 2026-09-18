@@ -1895,3 +1895,51 @@
                 href: 'tel:+639975770172'
             }
         };
+
+        function showContactPopup(type) {
+            const info = CONTACT_INFO[type];
+            if (!info) return;
+
+            document.getElementById('contactPopupIcon').innerHTML = info.icon;
+            document.getElementById('contactPopupLabel').textContent = info.label;
+            document.getElementById('contactPopupValue').textContent = info.value;
+
+            const actionLink = document.getElementById('contactPopupActionLink');
+            actionLink.textContent = info.actionLabel;
+            actionLink.href = info.href;
+
+            document.getElementById('contactPopupOverlay').style.display = 'flex';
+        }
+
+        function closeContactPopup() {
+            document.getElementById('contactPopupOverlay').style.display = 'none';
+        }
+
+        async function copyContactPopupValue() {
+            const value = document.getElementById('contactPopupValue').textContent;
+            try {
+                await navigator.clipboard.writeText(value);
+            } catch (error) {
+                const textArea = document.createElement('textarea');
+                textArea.value = value;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                textArea.remove();
+            }
+            const copyButton = document.getElementById('contactPopupCopyBtn');
+            const originalText = copyButton.textContent;
+            copyButton.textContent = 'Copied';
+            setTimeout(() => {
+                copyButton.textContent = originalText;
+            }, 1200);
+        }
+
+        document.getElementById('contactPopupOverlay').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeContactPopup();
+            }
+        });
+    </script>
+</body>
+</html>
