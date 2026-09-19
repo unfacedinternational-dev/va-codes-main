@@ -4,6 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VA Codes - Website Development and IT Services</title>
+    <meta name="description" content="VA CODES provides website development, automation, IT services, business systems, API integrations, technical support, and remote digital services.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://va-codes.vercel.app/">
+    <meta name="theme-color" content="#0b0f19">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="VA CODES | Website Development, Automation & IT Services">
+    <meta property="og:description" content="Explore VA CODES services, live deployments, automation work, websites, business systems, and technical solutions.">
+    <meta property="og:url" content="https://va-codes.vercel.app/">
+    <meta property="og:image" content="https://va-codes.vercel.app/assets/nav/code-mark.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VA CODES | Website Development, Automation & IT Services">
+    <meta name="twitter:description" content="Explore VA CODES services, live deployments, automation work, websites, business systems, and technical solutions.">
+    <meta name="twitter:image" content="https://va-codes.vercel.app/assets/nav/code-mark.jpg">
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"Person",
+      "name":"Joy D. Norca",
+      "url":"https://va-codes.vercel.app/",
+      "jobTitle":"Full Stack Automation Engineer",
+      "sameAs":["https://www.linkedin.com/in/joynorca"]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Dancing+Script:wght@600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -323,6 +346,132 @@
         @media (max-width:1023px){ .rw-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
         @media (max-width:639px){ .rw-grid{grid-template-columns:1fr;} .rw-cover-wrap{height:192px;} }
 
+        /* SEO Showcase */
+        .seo-showcase {
+            margin: 0 0 34px;
+            padding: 26px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background:
+                radial-gradient(circle at 8% 0%, rgba(56,189,248,.12), transparent 34%),
+                radial-gradient(circle at 92% 100%, rgba(167,139,250,.10), transparent 34%),
+                var(--card-bg);
+            overflow: hidden;
+        }
+        .seo-heading {
+            display:flex;
+            align-items:center;
+            gap:10px;
+            font-size:1.15rem;
+            font-weight:800;
+            text-transform:uppercase;
+            letter-spacing:1px;
+            border-left:3px solid var(--accent);
+            padding-left:12px;
+            margin-bottom:8px;
+        }
+        .seo-heading::after { content:""; flex:1; height:1px; background:linear-gradient(90deg,var(--border),transparent); }
+        .seo-intro {
+            color:var(--accent-warm);
+            font-size:.88rem;
+            line-height:1.6;
+            font-style:italic;
+            margin:0 0 20px 15px;
+            max-width:780px;
+        }
+        .seo-flow {
+            display:grid;
+            grid-template-columns:repeat(6,minmax(0,1fr));
+            gap:8px;
+            margin-bottom:18px;
+        }
+        .seo-step {
+            position:relative;
+            min-height:108px;
+            padding:14px 10px;
+            border:1px solid var(--border);
+            border-radius:12px;
+            background:rgba(2,6,23,.42);
+            text-align:center;
+            transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+        }
+        .seo-step:hover { transform:translateY(-3px); border-color:var(--border-glow); box-shadow:0 10px 24px rgba(56,189,248,.10); }
+        .seo-step-number {
+            display:inline-grid;
+            place-items:center;
+            width:28px;
+            height:28px;
+            border-radius:50%;
+            margin-bottom:8px;
+            font:800 .72rem 'JetBrains Mono',monospace;
+            color:#07111d;
+            background:linear-gradient(135deg,var(--accent),var(--accent-warm));
+        }
+        .seo-step h3 { font-size:.78rem; margin:0 0 4px; color:#fff; }
+        .seo-step p { font-size:.67rem; line-height:1.4; color:var(--text-muted); margin:0; }
+        .seo-checks {
+            display:grid;
+            grid-template-columns:repeat(3,minmax(0,1fr));
+            gap:8px;
+            margin-bottom:16px;
+        }
+        .seo-check {
+            padding:10px 12px;
+            border-radius:9px;
+            border:1px solid var(--border);
+            background:rgba(148,163,184,.045);
+            color:#cbd5e1;
+            font-size:.72rem;
+        }
+        .seo-check strong { color:#fff; display:block; margin-bottom:3px; font-size:.74rem; }
+        .seo-check span { color:var(--accent); font-weight:800; }
+        .seo-works {
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:16px;
+            padding:14px 16px;
+            border:1px solid rgba(56,189,248,.22);
+            border-radius:11px;
+            background:linear-gradient(90deg,rgba(56,189,248,.07),rgba(251,191,36,.045));
+        }
+        .seo-works p { margin:0; color:var(--text-muted); font-size:.76rem; line-height:1.5; }
+        .seo-works strong { color:#fff; }
+        .seo-learn-btn {
+            flex:none;
+            border:0;
+            border-radius:8px;
+            padding:9px 13px;
+            background:linear-gradient(135deg,#06b6d4,#7c3aed);
+            color:#fff;
+            font:800 .72rem 'Plus Jakarta Sans',sans-serif;
+            cursor:pointer;
+            white-space:nowrap;
+        }
+        .seo-modal-overlay {
+            position:fixed; inset:0; z-index:10000; display:none; align-items:center; justify-content:center;
+            padding:16px; background:rgba(0,0,0,.72); backdrop-filter:blur(5px);
+        }
+        .seo-modal {
+            width:100%; max-width:760px; max-height:85vh; overflow:auto;
+            padding:28px; border:1px solid var(--border); border-radius:16px;
+            background:var(--card-bg); box-shadow:0 25px 60px rgba(0,0,0,.45);
+        }
+        .seo-modal-head { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:18px; }
+        .seo-modal h2 { margin:0; font-size:1.35rem; color:#fff; }
+        .seo-modal .seo-close { border:0; border-radius:8px; background:#0f172a; color:#fff; padding:6px 10px; cursor:pointer; font-weight:800; }
+        .seo-modal p,.seo-modal li { color:var(--text-muted); font-size:.86rem; line-height:1.65; }
+        .seo-modal ol { margin:10px 0 0; padding-left:22px; }
+        .seo-modal li { margin-bottom:8px; }
+        @media(max-width:900px){ .seo-flow{grid-template-columns:repeat(3,minmax(0,1fr));} }
+        @media(max-width:620px){
+            .seo-showcase{padding:18px;}
+            .seo-flow,.seo-checks{grid-template-columns:1fr 1fr;}
+            .seo-works{align-items:flex-start; flex-direction:column;}
+            .seo-learn-btn{width:100%;}
+        }
+        @media(max-width:420px){ .seo-flow,.seo-checks{grid-template-columns:1fr;} }
+        
         /* Footer Bottom Area */
         footer {
             text-align: center;
@@ -1380,6 +1529,35 @@
             <p>Delivering specialized technical solutions, web development projects, and remote administrative support services.</p>
         </header>
 
+        <!-- SEO Showcase -->
+        <section class="seo-showcase" aria-labelledby="seo-showcase-title">
+            <h2 id="seo-showcase-title" class="seo-heading">SEO &amp; Search Optimization</h2>
+            <p class="seo-intro"><em>I optimize websites not only for appearance, but also for how search engines discover, understand, and present the content.</em></p>
+
+            <div class="seo-flow" aria-label="SEO workflow">
+                <article class="seo-step"><span class="seo-step-number">01</span><h3>Research</h3><p>Search intent, keywords, audience, and competitive context.</p></article>
+                <article class="seo-step"><span class="seo-step-number">02</span><h3>On Page</h3><p>Titles, headings, content structure, links, and image text.</p></article>
+                <article class="seo-step"><span class="seo-step-number">03</span><h3>Technical</h3><p>Crawlability, indexability, mobile readiness, speed, and URLs.</p></article>
+                <article class="seo-step"><span class="seo-step-number">04</span><h3>Structure</h3><p>Semantic HTML, internal links, metadata, and structured data.</p></article>
+                <article class="seo-step"><span class="seo-step-number">05</span><h3>Measure</h3><p>Search Console, indexing checks, queries, clicks, and impressions.</p></article>
+                <article class="seo-step"><span class="seo-step-number">06</span><h3>Improve</h3><p>Review findings, fix issues, refine content, and repeat.</p></article>
+            </div>
+
+            <div class="seo-checks">
+                <div class="seo-check"><strong>Search appearance</strong><span>✓</span> Title, description, social preview</div>
+                <div class="seo-check"><strong>Technical foundation</strong><span>✓</span> Canonical, robots, sitemap</div>
+                <div class="seo-check"><strong>Semantic content</strong><span>✓</span> Clear headings and page structure</div>
+                <div class="seo-check"><strong>Images</strong><span>✓</span> Descriptive alternative text</div>
+                <div class="seo-check"><strong>Structured data</strong><span>✓</span> Machine readable page context</div>
+                <div class="seo-check"><strong>Continuous improvement</strong><span>✓</span> Monitor, diagnose, refine</div>
+            </div>
+
+            <div class="seo-works">
+                <p><strong>Built into this portfolio:</strong> the technical SEO foundation is part of the website itself, while the workflow above shows how I approach SEO work for a client site.</p>
+                <button type="button" class="seo-learn-btn" onclick="openSeoModal()">See How SEO Works ↗</button>
+            </div>
+        </section>
+
         <!-- Tech Stack Marquee -->
         <section class="tech-stack">
             <div class="section-title">Tech Stack</div>
@@ -1468,6 +1646,24 @@
             </div>
         </section>
 
+
+        <div id="seoModalOverlay" class="seo-modal-overlay" onclick="if(event.target===this)closeSeoModal()">
+            <div class="seo-modal" role="dialog" aria-modal="true" aria-labelledby="seoModalTitle">
+                <div class="seo-modal-head">
+                    <h2 id="seoModalTitle">How SEO Works on a Website</h2>
+                    <button type="button" class="seo-close" onclick="closeSeoModal()">Close</button>
+                </div>
+                <p>Search engines need to discover a page, crawl it, understand its content, and decide when it is useful to show for a search. SEO improves the signals and structure that help both people and search systems understand the website.</p>
+                <ol>
+                    <li><strong>Research:</strong> identify the audience, search intent, topics, and useful phrases before changing the page.</li>
+                    <li><strong>Optimize the page:</strong> write clear titles and descriptions, organize headings, improve content, strengthen internal links, and use descriptive image alternative text.</li>
+                    <li><strong>Build the technical foundation:</strong> keep pages crawlable and indexable, use canonical URLs where appropriate, provide a sitemap and robots.txt, and maintain a mobile friendly, usable page.</li>
+                    <li><strong>Help machines understand the content:</strong> use semantic HTML and appropriate structured data when it accurately represents visible page content.</li>
+                    <li><strong>Measure:</strong> use tools such as Google Search Console to inspect indexing and review search performance data when available.</li>
+                    <li><strong>Improve:</strong> use evidence from technical checks and search data to make focused changes rather than stuffing keywords or promising a guaranteed ranking.</li>
+                </ol>
+            </div>
+        </div>
 
         <!-- Services Section -->
         <section class="services-showcase" aria-labelledby="services-heading">
@@ -1908,6 +2104,22 @@
                 closeContactPopup();
             }
         });
+    <script>
+        function openSeoModal() {
+            var modal = document.getElementById('seoModalOverlay');
+            if (modal) {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        function closeSeoModal() {
+            var modal = document.getElementById('seoModalOverlay');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        }
+    </script>
     </script>
 </body>
 </html>
