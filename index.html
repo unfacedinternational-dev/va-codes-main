@@ -1506,6 +1506,30 @@
         @media(max-width:650px){.developer-profile>*:not(.close-modal){margin-left:20px;margin-right:20px}.developer-hero{padding:32px 24px;align-items:flex-start}.developer-avatar{width:60px;height:60px;border-radius:17px;font-size:1.15rem}.developer-identity h2{font-size:1.45rem!important}.profile-stats,.what-i-do-grid,.education-cards{grid-template-columns:1fr}.timeline-item{grid-template-columns:1fr;gap:4px}.developer-cta{padding:24px;flex-direction:column;align-items:flex-start}}
 
     </style>
+<style id="vcodes-motion-layer">
+/* VA CODES Main motion layer */
+html { scroll-behavior: auto; }
+body { overflow-x:hidden; }
+.vc-motion-reveal { opacity:0; transform:translateY(24px); }
+.vc-motion-ready .vc-motion-reveal { opacity:1; transform:none; }
+.vc-motion-glow {
+  position:fixed; width:220px; height:220px; border-radius:50%; pointer-events:none; z-index:0;
+  background:radial-gradient(circle, rgba(56,189,248,.12) 0%, rgba(167,139,250,.06) 35%, transparent 70%);
+  transform:translate(-50%,-50%); opacity:0; filter:blur(2px);
+}
+.hero, .rw-section, .seo-showcase, .services-showcase, .promo, .resume-card { isolation:isolate; }
+.rw-card, .service-photo-card, .service-tile { will-change:transform; }
+.vc-motion-shimmer { position:relative; overflow:hidden; }
+.vc-motion-shimmer::before {
+  content:""; position:absolute; inset:0; transform:translateX(-120%);
+  background:linear-gradient(105deg, transparent 35%, rgba(255,255,255,.07) 50%, transparent 65%);
+  pointer-events:none; z-index:4;
+}
+@media (prefers-reduced-motion: reduce) {
+  .vc-motion-reveal { opacity:1 !important; transform:none !important; }
+  .vc-motion-glow { display:none; }
+}
+</style>
 </head>
 <body>
 
@@ -2122,4 +2146,94 @@
     </script>
     </script>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script type="module">
+(async function () {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const root = document.documentElement;
+  const addClass = (el, cls) => el && el.classList.add(cls);
+
+  document.querySelectorAll(
+    '.hero-eyebrow, .hero h1, .hero p, .hero .btn-cta, .section-title, .rw-card, .seo-step, .seo-check, .service-photo-card, .service-tile, .promo-eyebrow, .promo h2, .resume-card'
+  ).forEach(el => el.classList.add('vc-motion-reveal'));
+
+  if (reduce) {
+    document.querySelectorAll('.vc-motion-reveal').forEach(el => el.classList.add('vc-motion-ready'));
+    return;
+  }
+
+  const motion = await import('https://cdn.jsdelivr.net/npm/motion@12.23.24/+esm').catch(() => null);
+  const animate = motion && motion.animate;
+  const inView = motion && motion.inView;
+
+  if (typeof gsap === 'undefined') {
+    document.querySelectorAll('.vc-motion-reveal').forEach(el => el.classList.add('vc-motion-ready'));
+    return;
+  }
+
+  const glow = document.createElement('div');
+  glow.className = 'vc-motion-glow';
+  document.body.appendChild(glow);
+
+  let pointerX = innerWidth / 2, pointerY = innerHeight / 2, glowX = pointerX, glowY = pointerY;
+  window.addEventListener('pointermove', e => {
+    pointerX = e.clientX; pointerY = e.clientY; glow.style.opacity = '.9';
+  }, {passive:true});
+  gsap.ticker.add(() => {
+    glowX += (pointerX - glowX) * .08;
+    glowY += (pointerY - glowY) * .08;
+    gsap.set(glow, {x:glowX, y:glowY});
+  });
+
+  const heroItems = document.querySelectorAll('.hero-eyebrow, .hero h1, .hero p, .hero .btn-cta');
+  gsap.timeline({defaults:{ease:'power3.out'}})
+    .fromTo(heroItems, {y:22, opacity:0}, {y:0, opacity:1, duration:.7, stagger:.1, clearProps:'transform'})
+    .fromTo('.hero::before', {opacity:.2}, {opacity:1, duration:1}, '<');
+
+  const reveal = el => {
+    if (typeof animate === 'function') {
+      animate(el, {opacity:[0,1], transform:['translateY(24px)','translateY(0)']}, {duration:.65, easing:'cubic-bezier(.22,1,.36,1)'});
+    } else {
+      gsap.fromTo(el,{y:24,opacity:0},{y:0,opacity:1,duration:.65,ease:'power3.out'});
+    }
+  };
+
+  document.querySelectorAll('.vc-motion-reveal').forEach((el, i) => {
+    if (heroItems.length && el.closest('.hero')) return;
+    if (typeof inView === 'function') {
+      inView(el, () => reveal(el), {amount:.18});
+    } else {
+      gsap.fromTo(el,{y:24,opacity:0},{y:0,opacity:1,duration:.65,delay:Math.min(i*.025,.35),ease:'power3.out',scrollTrigger:undefined});
+    }
+  });
+
+  const interactive = document.querySelectorAll('.rw-card, .service-photo-card, .service-tile');
+  interactive.forEach(card => {
+    card.addEventListener('pointermove', e => {
+      const r = card.getBoundingClientRect();
+      const rx = ((e.clientY-r.top)/r.height-.5)*-4;
+      const ry = ((e.clientX-r.left)/r.width-.5)*4;
+      gsap.to(card,{rotateX:rx,rotateY:ry,y:-4,duration:.25,ease:'power2.out',overwrite:true});
+    });
+    card.addEventListener('pointerleave', () => gsap.to(card,{rotateX:0,rotateY:0,y:0,duration:.45,ease:'power3.out'}));
+  });
+
+  document.querySelectorAll('.btn-cta, .rw-action, .seo-learn-btn, .btn-about-bottom, .btn-contact-bottom').forEach(btn => {
+    btn.addEventListener('pointerenter', () => gsap.to(btn,{y:-2,scale:1.025,duration:.2,ease:'power2.out'}));
+    btn.addEventListener('pointerleave', () => gsap.to(btn,{y:0,scale:1,duration:.25,ease:'power2.out'}));
+  });
+
+  document.querySelectorAll('.hero, .promo, .seo-showcase').forEach(section => section.classList.add('vc-motion-shimmer'));
+  document.querySelectorAll('.vc-motion-shimmer').forEach(section => {
+    const sweep = () => {
+      gsap.fromTo(section.querySelector(':scope::before'),{},{}); 
+      section.classList.remove('vc-motion-shimmer-run');
+      void section.offsetWidth;
+      section.classList.add('vc-motion-shimmer-run');
+    };
+  });
+
+  root.classList.add('vc-motion-ready');
+})();
+</script>
 </html>
