@@ -438,6 +438,11 @@
             transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease,filter .28s ease;
             animation:hubFloat 4.8s ease-in-out infinite;
         }
+        .hub-works { width:clamp(235px,22vw,270px); height:clamp(235px,22vw,270px); }
+        .hub-services { width:clamp(215px,20vw,245px); height:clamp(215px,20vw,245px); }
+        .hub-other { width:clamp(195px,18vw,220px); height:clamp(195px,18vw,220px); }
+        .hub-seo { width:clamp(175px,16vw,200px); height:clamp(175px,16vw,200px); }
+
         .hub-card::before {
             content:"";
             position:absolute;
@@ -539,7 +544,11 @@
             text-shadow:0 0 12px var(--hub-glow);
         }
         @media (prefers-reduced-motion: reduce) {
-            .hub-card { animation:none; }
+            .hub-card { width:clamp(165px,44vw,200px); height:clamp(165px,44vw,200px); }
+            .hub-works { width:clamp(185px,50vw,220px); height:clamp(185px,50vw,220px); }
+            .hub-services { width:clamp(170px,46vw,205px); height:clamp(170px,46vw,205px); }
+            .hub-other { width:clamp(155px,42vw,190px); height:clamp(155px,42vw,190px); }
+            .hub-seo { width:clamp(140px,38vw,175px); height:clamp(140px,38vw,175px); } animation:none; }
             .hub-card:hover { transform:translateY(-4px) scale(1.02); }
         }
         @media (max-width:980px) {
