@@ -346,6 +346,88 @@
         @media (max-width:1023px){ .rw-grid{grid-template-columns:repeat(2,minmax(0,1fr));} }
         @media (max-width:639px){ .rw-grid{grid-template-columns:1fr;} .rw-cover-wrap{height:192px;} }
 
+        /* Compact Section Hub */
+        .section-hub {
+            margin: 8px 0 34px;
+            padding: 22px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background:
+                radial-gradient(circle at 10% 0%, rgba(56,189,248,.09), transparent 32%),
+                radial-gradient(circle at 90% 100%, rgba(167,139,250,.08), transparent 32%),
+                var(--card-bg);
+        }
+        .section-hub-heading { text-align:center; max-width:720px; margin:0 auto 18px; }
+        .section-hub-kicker,.hub-modal-kicker {
+            display:inline-block;
+            font:700 .66rem 'JetBrains Mono',monospace;
+            letter-spacing:1.4px;
+            color:var(--accent);
+            margin-bottom:5px;
+        }
+        .section-hub-heading h2 { font-size:1.35rem; margin:0 0 5px; color:#fff; }
+        .section-hub-heading p { color:var(--text-muted); font-size:.78rem; margin:0; }
+        .section-hub-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+        .hub-card {
+            position:relative; width:100%; min-height:132px; padding:20px; border:1px solid var(--border);
+            border-radius:14px; background:rgba(15,23,42,.72); color:#fff; text-align:left; cursor:pointer;
+            display:grid; grid-template-columns:auto 1fr auto; gap:14px; align-items:start;
+            transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease;
+        }
+        .hub-card:hover { transform:translateY(-3px); background:var(--card-bg-hover); border-color:rgba(56,189,248,.45); box-shadow:0 16px 34px rgba(0,0,0,.24); }
+        .hub-card:focus-visible { outline:3px solid rgba(56,189,248,.5); outline-offset:2px; }
+        .hub-card-icon {
+            width:38px; height:38px; display:grid; place-items:center; border-radius:11px;
+            background:rgba(56,189,248,.1); color:var(--accent); border:1px solid rgba(56,189,248,.2);
+            font-size:1.15rem; font-weight:800;
+        }
+        .hub-card-copy { display:flex; flex-direction:column; gap:7px; min-width:0; }
+        .hub-card-copy strong { font-size:.83rem; line-height:1.35; letter-spacing:.3px; }
+        .hub-card-copy small { color:var(--text-muted); font-size:.72rem; line-height:1.55; }
+        .hub-card-arrow { color:var(--accent); font-size:1.1rem; font-weight:800; }
+        .hub-services:hover { border-color:rgba(56,189,248,.55); }
+        .hub-works:hover { border-color:rgba(167,139,250,.6); }
+        .hub-other:hover { border-color:rgba(251,191,36,.55); }
+        .hub-seo { border-color:rgba(251,113,133,.42); background:linear-gradient(135deg,rgba(236,72,153,.18),rgba(244,63,94,.10)); }
+        .hub-seo .hub-card-icon,.hub-seo .hub-card-arrow { color:#fb7185; }
+        .hub-seo:hover { border-color:rgba(251,113,133,.7); background:linear-gradient(135deg,rgba(236,72,153,.25),rgba(244,63,94,.15)); box-shadow:0 16px 34px rgba(236,72,153,.12); }
+        .hub-modal-overlay {
+            position:fixed; inset:0; z-index:9000; display:none; align-items:center; justify-content:center;
+            padding:14px; background:rgba(0,0,0,.76); backdrop-filter:blur(6px);
+        }
+        .hub-modal {
+            width:100%; max-width:980px; max-height:90vh; overflow:auto; border:1px solid var(--border);
+            border-radius:18px; background:#0b1220; box-shadow:0 30px 80px rgba(0,0,0,.55);
+        }
+        .hub-modal-wide { max-width:1180px; }
+        .hub-modal-header {
+            position:sticky; top:0; z-index:2; display:flex; justify-content:space-between; align-items:flex-start; gap:18px;
+            padding:18px 20px; border-bottom:1px solid var(--border); background:rgba(11,18,32,.96); backdrop-filter:blur(10px);
+        }
+        .hub-modal-header h2 { margin:0; color:#fff; font-size:1.2rem; line-height:1.3; }
+        .hub-close {
+            flex:none; border:1px solid var(--border); border-radius:8px; background:#0f172a; color:#fff;
+            padding:7px 11px; font:700 .72rem 'Plus Jakarta Sans',sans-serif; cursor:pointer;
+        }
+        .hub-close:hover { border-color:var(--border-glow); }
+        .hub-modal-body { padding:22px; }
+        .hub-modal-body .services-showcase,
+        .hub-modal-body .rw-section { margin-bottom:0; }
+        .hub-modal-body .section-title { margin-top:0; }
+        .hub-modal-body .rw-grid { padding-bottom:4px; }
+        .hub-modal-body .seo-showcase { margin-bottom:0; }
+        body.hub-modal-open { overflow:hidden; }
+        @media(max-width:760px){
+            .section-hub { padding:16px; }
+            .section-hub-grid { grid-template-columns:1fr; }
+            .hub-card { min-height:118px; padding:16px; }
+            .hub-modal-overlay { padding:8px; }
+            .hub-modal { max-height:94vh; border-radius:14px; }
+            .hub-modal-header { padding:14px; }
+            .hub-modal-body { padding:14px; }
+            .hub-modal-header h2 { font-size:1rem; }
+        }
+
         /* SEO Showcase */
         .seo-showcase {
             margin: 0 0 34px;
@@ -1537,8 +1619,6 @@ body { overflow-x:hidden; }
             </div>
         </nav>
 
-        <p class="nav-note">Every project, system, and piece of work showcased here is entirely crafted by the developer. This entire platform serves as a professional portfolio highlighting all the hands-on engineering capabilities. Please review the developer's complete information at the bottom of the page, as every profile element, including all the automation projects listed here, reflects the developer's individual work and expertise.</p>
-
         <!-- Hero Banner -->
         <header class="hero">
             <div class="hero-side-img left"><img src="assets/hero/macbook-code.jpg" alt=""></div>
@@ -1636,29 +1716,64 @@ body { overflow-x:hidden; }
             </div>
         </section>
 
+        <!-- Compact Section Hub -->
+        <section class="section-hub" aria-labelledby="section-hub-title">
+            <div class="section-hub-heading">
+                <span class="section-hub-kicker">EXPLORE VA CODES</span>
+                <h2 id="section-hub-title">Choose what you want to explore</h2>
+                <p>Keep the homepage focused. Open any section below to view the full details, projects, workflows, and services.</p>
+            </div>
+            <div class="section-hub-grid">
+                <button type="button" class="hub-card hub-services" onclick="openHubModal('servicesHubModal')" aria-controls="servicesHubModal">
+                    <span class="hub-card-icon">✦</span>
+                    <span class="hub-card-copy">
+                        <strong>SERVICES</strong>
+                        <small>Website development, automation, web apps, business systems, integrations, maintenance, and technical support.</small>
+                    </span>
+                    <span class="hub-card-arrow" aria-hidden="true">↗</span>
+                </button>
 
-        <div id="seoModalOverlay" class="seo-modal-overlay" onclick="if(event.target===this)closeSeoModal()">
-            <div class="seo-modal" role="dialog" aria-modal="true" aria-labelledby="seoModalTitle">
-                <div class="seo-modal-head">
-                    <h2 id="seoModalTitle">How SEO Works on a Website</h2>
-                    <button type="button" class="seo-close" onclick="closeSeoModal()">Close</button>
-                </div>
-                <p>Search engines need to discover a page, crawl it, understand its content, and decide when it is useful to show for a search. SEO improves the signals and structure that help both people and search systems understand the website.</p>
-                <ol>
-                    <li><strong>Research:</strong> identify the audience, search intent, topics, and useful phrases before changing the page.</li>
-                    <li><strong>Optimize the page:</strong> write clear titles and descriptions, organize headings, improve content, strengthen internal links, and use descriptive image alternative text.</li>
-                    <li><strong>Build the technical foundation:</strong> keep pages crawlable and indexable, use canonical URLs where appropriate, provide a sitemap and robots.txt, and maintain a mobile friendly, usable page.</li>
-                    <li><strong>Help machines understand the content:</strong> use semantic HTML and appropriate structured data when it accurately represents visible page content.</li>
-                    <li><strong>Measure:</strong> use tools such as Google Search Console to inspect indexing and review search performance data when available.</li>
-                    <li><strong>Improve:</strong> use evidence from technical checks and search data to make focused changes rather than stuffing keywords or promising a guaranteed ranking.</li>
-                </ol>
-                <button type="button" class="seo-modal-back" onclick="backToMainPage()">
-                    <span aria-hidden="true">←</span> Back to Main Page
+                <button type="button" class="hub-card hub-works" onclick="openHubModal('worksHubModal')" aria-controls="worksHubModal">
+                    <span class="hub-card-icon">⌘</span>
+                    <span class="hub-card-copy">
+                        <strong>RECENT WORKS, AUTOMATIONS, WEBSITES &amp; DEPLOYMENTS</strong>
+                        <small>Browse live projects, automation systems, websites, deployments, previews, deliverables, and project details.</small>
+                    </span>
+                    <span class="hub-card-arrow" aria-hidden="true">↗</span>
+                </button>
+
+                <button type="button" class="hub-card hub-seo" onclick="openSeoModal()" aria-controls="seoModalOverlay">
+                    <span class="hub-card-icon">⌕</span>
+                    <span class="hub-card-copy">
+                        <strong>SEO &amp; SEARCH OPTIMIZATION</strong>
+                        <small>See how technical structure, content, search intent, indexing, and measurement work together to improve discoverability.</small>
+                    </span>
+                    <span class="hub-card-arrow" aria-hidden="true">↗</span>
+                </button>
+
+                <button type="button" class="hub-card hub-other" onclick="openHubModal('otherServicesHubModal')" aria-controls="otherServicesHubModal">
+                    <span class="hub-card-icon">＋</span>
+                    <span class="hub-card-copy">
+                        <strong>OTHER SERVICES</strong>
+                        <small>Explore additional VA support, administrative services, specialized workflows, and practical business tools.</small>
+                    </span>
+                    <span class="hub-card-arrow" aria-hidden="true">↗</span>
                 </button>
             </div>
-        </div>
+        </section>
 
-        <!-- Services Section -->
+        <!-- Full Services -->
+        <div class="hub-modal-overlay" id="servicesHubModal" aria-hidden="true" onclick="if(event.target===this)closeHubModal('servicesHubModal')">
+            <div class="hub-modal" role="dialog" aria-modal="true" aria-labelledby="servicesHubTitle" onclick="event.stopPropagation()">
+                <div class="hub-modal-header">
+                    <div>
+                        <span class="hub-modal-kicker">VA CODES</span>
+                        <h2 id="servicesHubTitle">Services</h2>
+                    </div>
+                    <button type="button" class="hub-close" onclick="closeHubModal('servicesHubModal')">Close</button>
+                </div>
+                <div class="hub-modal-body">
+                    <!-- Services Section -->
         <section class="services-showcase" aria-labelledby="services-heading">
             <div class="section-title">Services</div>
             <p class="services-showcase-intro">Practical digital services built around the way your business actually works.</p>
@@ -1674,8 +1789,22 @@ body { overflow-x:hidden; }
                 <article class="service-photo-card" style="background-image:url('https://images.pexels.com/photos/7681286/pexels-photo-7681286.jpeg?auto=compress&cs=tinysrgb&w=1400');"><div class="service-photo-overlay"><h3>Technical Support</h3><p>Practical technical assistance for digital operations, systems, and business needs.</p></div></article>
             </div>
         </section>
+                </div>
+            </div>
+        </div>
 
-        <!-- Recent Works: copied from original VA CODES design -->
+        <!-- Full Recent Works -->
+        <div class="hub-modal-overlay" id="worksHubModal" aria-hidden="true" onclick="if(event.target===this)closeHubModal('worksHubModal')">
+            <div class="hub-modal hub-modal-wide" role="dialog" aria-modal="true" aria-labelledby="worksHubTitle" onclick="event.stopPropagation()">
+                <div class="hub-modal-header">
+                    <div>
+                        <span class="hub-modal-kicker">VA CODES WORKS</span>
+                        <h2 id="worksHubTitle">Recent Works, Automations, Websites &amp; Deployments</h2>
+                    </div>
+                    <button type="button" class="hub-close" onclick="closeHubModal('worksHubModal')">Close</button>
+                </div>
+                <div class="hub-modal-body">
+                    <!-- Recent Works: copied from original VA CODES design -->
 <section class="rw-section">
             <div class="rw-container">
                 <h2 class="rw-heading">VA CODES Works, Automations, Websites and Deployments</h2>
@@ -1793,47 +1922,22 @@ body { overflow-x:hidden; }
                 </div>
             </div>
         </section>
-
-        <!-- SEO Showcase: compact CTA below Recent Works -->
-        <section class="seo-showcase seo-compact" aria-labelledby="seo-showcase-title">
-            <button type="button" class="seo-card-button" onclick="openSeoModal()" aria-controls="seoModalOverlay">
-                <span class="seo-card-copy">
-                    <span class="seo-card-title" id="seo-showcase-title">SEO &amp; Search Optimization</span>
-                    <span class="seo-card-description">Improve how a website is discovered, understood, and presented in search results through practical, structured optimization.</span>
-                </span>
-                <span class="seo-card-action">Explore SEO <span aria-hidden="true">↗</span></span>
-            </button>
-            <button type="button" class="seo-back-main" onclick="backToMainPage()" aria-label="Back to main page">
-                <span aria-hidden="true">←</span> Back to Main Page
-            </button>
-        </section>
-
-
-
-        <!-- Recent Works Project Preview -->
-        <div class="rw-modal-overlay" id="recentProjectOverlay" aria-hidden="true" onclick="if(event.target===this) closeRecentProject()">
-            <div class="rw-modal" role="dialog" aria-modal="true" aria-labelledby="recentProjectTitle" onclick="event.stopPropagation()">
-                <div class="rw-modal-header">
-                    <h3 id="recentProjectTitle"></h3>
-                    <div class="rw-modal-actions">
-                        <a id="recentProjectFullLink" class="rw-full-project" href="#" target="_blank" rel="noopener noreferrer">View Full Project ↗</a>
-                        <button type="button" onclick="closeRecentProject()" class="rw-close">Close</button>
-                    </div>
                 </div>
-                <iframe id="recentProjectFrame" title="Recent project preview"></iframe>
             </div>
         </div>
 
-        <div class="rw-modal-overlay" id="projectInfoOverlay" aria-hidden="true" onclick="if(event.target===this) closeProjectInfo()">
-            <div class="rw-info-modal" role="dialog" aria-modal="true" aria-labelledby="projectInfoTitle" onclick="event.stopPropagation()">
-                <button type="button" class="rw-info-close" onclick="closeProjectInfo()">Close</button>
-                <p id="projectInfoType" class="rw-info-type"></p>
-                <h3 id="projectInfoTitle"></h3>
-                <div id="projectInfoBody" class="rw-info-body"></div>
-            </div>
-        </div>
-
-        <!-- Other Services Section -->
+        <!-- Full Other Services -->
+        <div class="hub-modal-overlay" id="otherServicesHubModal" aria-hidden="true" onclick="if(event.target===this)closeHubModal('otherServicesHubModal')">
+            <div class="hub-modal hub-modal-wide" role="dialog" aria-modal="true" aria-labelledby="otherServicesHubTitle" onclick="event.stopPropagation()">
+                <div class="hub-modal-header">
+                    <div>
+                        <span class="hub-modal-kicker">ADDITIONAL SUPPORT</span>
+                        <h2 id="otherServicesHubTitle">Other Services</h2>
+                    </div>
+                    <button type="button" class="hub-close" onclick="closeHubModal('otherServicesHubModal')">Close</button>
+                </div>
+                <div class="hub-modal-body">
+                    <!-- Other Services Section -->
         <section>
             <div class="section-title">Other Services</div>
             <p class="other-services-tagline">VA services, with some self-built tools on the side to automate the given tasks ✨</p>
@@ -1865,6 +1969,56 @@ body { overflow-x:hidden; }
                 </div>
             </div>
         </section>
+                </div>
+            </div>
+        </div>
+
+        <div id="seoModalOverlay" class="seo-modal-overlay" onclick="if(event.target===this)closeSeoModal()">
+            <div class="seo-modal" role="dialog" aria-modal="true" aria-labelledby="seoModalTitle">
+                <div class="seo-modal-head">
+                    <h2 id="seoModalTitle">How SEO Works on a Website</h2>
+                    <button type="button" class="seo-close" onclick="closeSeoModal()">Close</button>
+                </div>
+                <p>Search engines need to discover a page, crawl it, understand its content, and decide when it is useful to show for a search. SEO improves the signals and structure that help both people and search systems understand the website.</p>
+                <ol>
+                    <li><strong>Research:</strong> identify the audience, search intent, topics, and useful phrases before changing the page.</li>
+                    <li><strong>Optimize the page:</strong> write clear titles and descriptions, organize headings, improve content, strengthen internal links, and use descriptive image alternative text.</li>
+                    <li><strong>Build the technical foundation:</strong> keep pages crawlable and indexable, use canonical URLs where appropriate, provide a sitemap and robots.txt, and maintain a mobile friendly, usable page.</li>
+                    <li><strong>Help machines understand the content:</strong> use semantic HTML and appropriate structured data when it accurately represents visible page content.</li>
+                    <li><strong>Measure:</strong> use tools such as Google Search Console to inspect indexing and review search performance data when available.</li>
+                    <li><strong>Improve:</strong> use evidence from technical checks and search data to make focused changes rather than stuffing keywords or promising a guaranteed ranking.</li>
+                </ol>
+                <button type="button" class="seo-modal-back" onclick="backToMainPage()">
+                    <span aria-hidden="true">←</span> Back to Main Page
+                </button>
+            </div>
+        </div>
+
+
+
+
+        <!-- Recent Works Project Preview -->
+        <div class="rw-modal-overlay" id="recentProjectOverlay" aria-hidden="true" onclick="if(event.target===this) closeRecentProject()">
+            <div class="rw-modal" role="dialog" aria-modal="true" aria-labelledby="recentProjectTitle" onclick="event.stopPropagation()">
+                <div class="rw-modal-header">
+                    <h3 id="recentProjectTitle"></h3>
+                    <div class="rw-modal-actions">
+                        <a id="recentProjectFullLink" class="rw-full-project" href="#" target="_blank" rel="noopener noreferrer">View Full Project ↗</a>
+                        <button type="button" onclick="closeRecentProject()" class="rw-close">Close</button>
+                    </div>
+                </div>
+                <iframe id="recentProjectFrame" title="Recent project preview"></iframe>
+            </div>
+        </div>
+
+        <div class="rw-modal-overlay" id="projectInfoOverlay" aria-hidden="true" onclick="if(event.target===this) closeProjectInfo()">
+            <div class="rw-info-modal" role="dialog" aria-modal="true" aria-labelledby="projectInfoTitle" onclick="event.stopPropagation()">
+                <button type="button" class="rw-info-close" onclick="closeProjectInfo()">Close</button>
+                <p id="projectInfoType" class="rw-info-type"></p>
+                <h3 id="projectInfoTitle"></h3>
+                <div id="projectInfoBody" class="rw-info-body"></div>
+            </div>
+        </div>
 
         <!-- Footer with Developer Button at the bottom -->
         <footer>
@@ -2039,6 +2193,8 @@ body { overflow-x:hidden; }
                 closeProjectInfo();
                 closeContactPopup();
                 closeModal();
+                ['servicesHubModal','worksHubModal','otherServicesHubModal'].forEach(closeHubModal);
+                closeSeoModal();
             }
         });
 
@@ -2114,6 +2270,23 @@ body { overflow-x:hidden; }
             }
         });
     <script>
+        function openHubModal(id) {
+            var modal = document.getElementById(id);
+            if (!modal) return;
+            modal.style.display = 'flex';
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('hub-modal-open');
+        }
+        function closeHubModal(id) {
+            var modal = document.getElementById(id);
+            if (!modal) return;
+            modal.style.display = 'none';
+            modal.setAttribute('aria-hidden', 'true');
+            if (!document.querySelector('.hub-modal-overlay[style*="display: flex"]')) {
+                document.body.classList.remove('hub-modal-open');
+            }
+        }
+
         function openSeoModal() {
             var modal = document.getElementById('seoModalOverlay');
             if (modal) {
