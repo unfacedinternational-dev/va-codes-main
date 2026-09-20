@@ -198,6 +198,17 @@ footer{padding:24px 6vw 34px!important;background:#fff!important;color:#6b7280!i
 .cap .cap-service-btn:hover{background:var(--pale)!important;border-color:var(--theme)!important;color:var(--deep)!important}
 .cap .btn.primary,.cap .cap-preview-btn,.cap .live-portal-link{background:var(--theme)!important;border-color:var(--theme)!important;color:#fff!important}
 .cap .btn.primary:hover,.cap .cap-preview-btn:hover,.cap .live-portal-link:hover{background:var(--deep)!important;border-color:var(--deep)!important}
+/* Final service-card layout and live-portal text link */
+.items{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:10px!important}
+.item-clickable{display:flex!important;align-items:center!important;width:100%!important;min-height:48px!important;padding:12px 13px!important;border:1px solid var(--mid)!important;border-radius:14px!important;background:var(--soft)!important;color:var(--theme)!important;font-size:13px!important;font-weight:800!important;line-height:1.35!important;box-shadow:0 4px 12px color-mix(in srgb,var(--theme) 8%,transparent)!important;transform:none!important}
+.item-clickable:hover{transform:translateY(-3px)!important;background:var(--pale)!important;border-color:var(--theme)!important;color:var(--deep)!important;box-shadow:0 10px 22px color-mix(in srgb,var(--theme) 15%,transparent)!important}
+.item-clickable .sky{color:var(--theme)!important;font-weight:900!important;flex:0 0 auto}
+.item-more{margin-left:auto!important;color:var(--theme)!important;opacity:.65!important;flex:0 0 auto}
+.item-clickable:hover .item-more{opacity:1!important;color:var(--deep)!important}
+.live-portal-link{display:inline!important;margin:6px 0 10px!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;color:var(--theme)!important;font:inherit!important;font-weight:900!important;letter-spacing:.02em!important;text-decoration:underline!important;text-underline-offset:3px!important;box-shadow:none!important;cursor:pointer!important}
+.live-portal-link:hover{background:transparent!important;color:var(--deep)!important;box-shadow:none!important;transform:none!important;text-decoration-thickness:2px!important;text-underline-offset:4px!important}
+@media(max-width:900px){.items{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:600px){.items{grid-template-columns:1fr!important}}
 </style>
 <body>
 <main class="wrap" style="padding:34px 0 20px">
