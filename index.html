@@ -349,104 +349,87 @@
         /* SEO Showcase */
         .seo-showcase {
             margin: 0 0 34px;
-            padding: 26px;
-            border: 1px solid var(--border);
+            padding: 18px;
+            border: 1px solid rgba(251,113,133,.28);
             border-radius: 16px;
             background:
-                radial-gradient(circle at 8% 0%, rgba(56,189,248,.12), transparent 34%),
-                radial-gradient(circle at 92% 100%, rgba(167,139,250,.10), transparent 34%),
+                radial-gradient(circle at 8% 0%, rgba(251,113,133,.12), transparent 34%),
+                radial-gradient(circle at 92% 100%, rgba(167,139,250,.08), transparent 34%),
                 var(--card-bg);
             overflow: hidden;
         }
-        .seo-heading {
-            display:flex;
-            align-items:center;
-            gap:10px;
-            font-size:1.15rem;
-            font-weight:800;
-            text-transform:uppercase;
-            letter-spacing:1px;
-            border-left:3px solid var(--accent);
-            padding-left:12px;
-            margin-bottom:8px;
-        }
-        .seo-heading::after { content:""; flex:1; height:1px; background:linear-gradient(90deg,var(--border),transparent); }
-        .seo-intro {
-            color:var(--accent-warm);
-            font-size:.88rem;
-            line-height:1.6;
-            font-style:italic;
-            margin:0 0 20px 15px;
-            max-width:780px;
-        }
-        .seo-flow {
-            display:grid;
-            grid-template-columns:repeat(6,minmax(0,1fr));
-            gap:8px;
-            margin-bottom:18px;
-        }
-        .seo-step {
-            position:relative;
-            min-height:108px;
-            padding:14px 10px;
-            border:1px solid var(--border);
-            border-radius:12px;
-            background:rgba(2,6,23,.42);
-            text-align:center;
-            transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
-        }
-        .seo-step:hover { transform:translateY(-3px); border-color:var(--border-glow); box-shadow:0 10px 24px rgba(56,189,248,.10); }
-        .seo-step-number {
-            display:inline-grid;
-            place-items:center;
-            width:28px;
-            height:28px;
-            border-radius:50%;
-            margin-bottom:8px;
-            font:800 .72rem 'JetBrains Mono',monospace;
-            color:#07111d;
-            background:linear-gradient(135deg,var(--accent),var(--accent-warm));
-        }
-        .seo-step h3 { font-size:.78rem; margin:0 0 4px; color:#fff; }
-        .seo-step p { font-size:.67rem; line-height:1.4; color:var(--text-muted); margin:0; }
-        .seo-checks {
-            display:grid;
-            grid-template-columns:repeat(3,minmax(0,1fr));
-            gap:8px;
-            margin-bottom:16px;
-        }
-        .seo-check {
-            padding:10px 12px;
-            border-radius:9px;
-            border:1px solid var(--border);
-            background:rgba(148,163,184,.045);
-            color:#cbd5e1;
-            font-size:.72rem;
-        }
-        .seo-check strong { color:#fff; display:block; margin-bottom:3px; font-size:.74rem; }
-        .seo-check span { color:var(--accent); font-weight:800; }
-        .seo-works {
+        .seo-card-button {
+            width:100%;
             display:flex;
             align-items:center;
             justify-content:space-between;
-            gap:16px;
-            padding:14px 16px;
-            border:1px solid rgba(56,189,248,.22);
-            border-radius:11px;
-            background:linear-gradient(90deg,rgba(56,189,248,.07),rgba(251,191,36,.045));
-        }
-        .seo-works p { margin:0; color:var(--text-muted); font-size:.76rem; line-height:1.5; }
-        .seo-works strong { color:#fff; }
-        .seo-learn-btn {
-            flex:none;
-            border:0;
-            border-radius:8px;
-            padding:9px 13px;
-            background:linear-gradient(135deg,#06b6d4,#7c3aed);
+            gap:20px;
+            padding:20px 22px;
+            border:1px solid rgba(251,113,133,.55);
+            border-radius:13px;
+            background:linear-gradient(135deg,rgba(236,72,153,.96),rgba(244,63,94,.90));
             color:#fff;
-            font:800 .72rem 'Plus Jakarta Sans',sans-serif;
+            text-align:left;
             cursor:pointer;
+            box-shadow:0 12px 28px rgba(236,72,153,.18);
+            transition:transform .2s ease,box-shadow .2s ease,filter .2s ease;
+        }
+        .seo-card-button:hover {
+            transform:translateY(-3px);
+            filter:brightness(1.06);
+            box-shadow:0 16px 34px rgba(236,72,153,.28);
+        }
+        .seo-card-button:focus-visible {
+            outline:3px solid rgba(255,255,255,.75);
+            outline-offset:3px;
+        }
+        .seo-card-copy {
+            display:flex;
+            flex-direction:column;
+            gap:6px;
+            min-width:0;
+        }
+        .seo-card-title {
+            font-size:1.08rem;
+            line-height:1.25;
+            font-weight:800;
+            letter-spacing:.2px;
+        }
+        .seo-card-description {
+            max-width:700px;
+            color:rgba(255,255,255,.88);
+            font-size:.78rem;
+            line-height:1.55;
+        }
+        .seo-card-action {
+            flex:none;
+            display:inline-flex;
+            align-items:center;
+            gap:7px;
+            padding:8px 12px;
+            border:1px solid rgba(255,255,255,.32);
+            border-radius:8px;
+            background:rgba(255,255,255,.12);
+            font-size:.72rem;
+            font-weight:800;
             white-space:nowrap;
+        }
+        .seo-back-main {
+            display:inline-flex;
+            align-items:center;
+            gap:7px;
+            margin:13px 0 0 5px;
+            padding:5px 4px;
+            border:0;
+            background:transparent;
+            color:var(--text-muted);
+            font:600 .72rem 'Plus Jakarta Sans',sans-serif;
+            cursor:pointer;
+            transition:color .2s ease,transform .2s ease;
+        }
+        .seo-back-main:hover {
+            color:#fff;
+            transform:translateX(-3px);
         }
         .seo-modal-overlay {
             position:fixed; inset:0; z-index:10000; display:none; align-items:center; justify-content:center;
@@ -463,15 +446,27 @@
         .seo-modal p,.seo-modal li { color:var(--text-muted); font-size:.86rem; line-height:1.65; }
         .seo-modal ol { margin:10px 0 0; padding-left:22px; }
         .seo-modal li { margin-bottom:8px; }
-        @media(max-width:900px){ .seo-flow{grid-template-columns:repeat(3,minmax(0,1fr));} }
-        @media(max-width:620px){
-            .seo-showcase{padding:18px;}
-            .seo-flow,.seo-checks{grid-template-columns:1fr 1fr;}
-            .seo-works{align-items:flex-start; flex-direction:column;}
-            .seo-learn-btn{width:100%;}
+        .seo-modal-back {
+            display:inline-flex;
+            align-items:center;
+            gap:7px;
+            margin-top:20px;
+            padding:9px 13px;
+            border:1px solid var(--border);
+            border-radius:8px;
+            background:rgba(148,163,184,.06);
+            color:#fff;
+            font:700 .75rem 'Plus Jakarta Sans',sans-serif;
+            cursor:pointer;
         }
-        @media(max-width:420px){ .seo-flow,.seo-checks{grid-template-columns:1fr;} }
-        
+        .seo-modal-back:hover { border-color:rgba(251,113,133,.55); background:rgba(236,72,153,.10); }
+        @media(max-width:620px){
+            .seo-showcase{padding:14px;}
+            .seo-card-button{align-items:flex-start; flex-direction:column; padding:18px;}
+            .seo-card-action{align-self:flex-start;}
+            .seo-back-main{margin-left:2px;}
+        }
+
         /* Footer Bottom Area */
         footer {
             text-align: center;
@@ -1553,35 +1548,6 @@ body { overflow-x:hidden; }
             <p>Delivering specialized technical solutions, web development projects, and remote administrative support services.</p>
         </header>
 
-        <!-- SEO Showcase -->
-        <section class="seo-showcase" aria-labelledby="seo-showcase-title">
-            <h2 id="seo-showcase-title" class="seo-heading">SEO &amp; Search Optimization</h2>
-            <p class="seo-intro"><em>I optimize websites not only for appearance, but also for how search engines discover, understand, and present the content.</em></p>
-
-            <div class="seo-flow" aria-label="SEO workflow">
-                <article class="seo-step"><span class="seo-step-number">01</span><h3>Research</h3><p>Search intent, keywords, audience, and competitive context.</p></article>
-                <article class="seo-step"><span class="seo-step-number">02</span><h3>On Page</h3><p>Titles, headings, content structure, links, and image text.</p></article>
-                <article class="seo-step"><span class="seo-step-number">03</span><h3>Technical</h3><p>Crawlability, indexability, mobile readiness, speed, and URLs.</p></article>
-                <article class="seo-step"><span class="seo-step-number">04</span><h3>Structure</h3><p>Semantic HTML, internal links, metadata, and structured data.</p></article>
-                <article class="seo-step"><span class="seo-step-number">05</span><h3>Measure</h3><p>Search Console, indexing checks, queries, clicks, and impressions.</p></article>
-                <article class="seo-step"><span class="seo-step-number">06</span><h3>Improve</h3><p>Review findings, fix issues, refine content, and repeat.</p></article>
-            </div>
-
-            <div class="seo-checks">
-                <div class="seo-check"><strong>Search appearance</strong><span>✓</span> Title, description, social preview</div>
-                <div class="seo-check"><strong>Technical foundation</strong><span>✓</span> Canonical, robots, sitemap</div>
-                <div class="seo-check"><strong>Semantic content</strong><span>✓</span> Clear headings and page structure</div>
-                <div class="seo-check"><strong>Images</strong><span>✓</span> Descriptive alternative text</div>
-                <div class="seo-check"><strong>Structured data</strong><span>✓</span> Machine readable page context</div>
-                <div class="seo-check"><strong>Continuous improvement</strong><span>✓</span> Monitor, diagnose, refine</div>
-            </div>
-
-            <div class="seo-works">
-                <p><strong>Built into this portfolio:</strong> the technical SEO foundation is part of the website itself, while the workflow above shows how I approach SEO work for a client site.</p>
-                <button type="button" class="seo-learn-btn" onclick="openSeoModal()">See How SEO Works ↗</button>
-            </div>
-        </section>
-
         <!-- Tech Stack Marquee -->
         <section class="tech-stack">
             <div class="section-title">Tech Stack</div>
@@ -1686,6 +1652,9 @@ body { overflow-x:hidden; }
                     <li><strong>Measure:</strong> use tools such as Google Search Console to inspect indexing and review search performance data when available.</li>
                     <li><strong>Improve:</strong> use evidence from technical checks and search data to make focused changes rather than stuffing keywords or promising a guaranteed ranking.</li>
                 </ol>
+                <button type="button" class="seo-modal-back" onclick="backToMainPage()">
+                    <span aria-hidden="true">←</span> Back to Main Page
+                </button>
             </div>
         </div>
 
@@ -1824,6 +1793,22 @@ body { overflow-x:hidden; }
                 </div>
             </div>
         </section>
+
+        <!-- SEO Showcase: compact CTA below Recent Works -->
+        <section class="seo-showcase seo-compact" aria-labelledby="seo-showcase-title">
+            <button type="button" class="seo-card-button" onclick="openSeoModal()" aria-controls="seoModalOverlay">
+                <span class="seo-card-copy">
+                    <span class="seo-card-title" id="seo-showcase-title">SEO &amp; Search Optimization</span>
+                    <span class="seo-card-description">Improve how a website is discovered, understood, and presented in search results through practical, structured optimization.</span>
+                </span>
+                <span class="seo-card-action">Explore SEO <span aria-hidden="true">↗</span></span>
+            </button>
+            <button type="button" class="seo-back-main" onclick="backToMainPage()" aria-label="Back to main page">
+                <span aria-hidden="true">←</span> Back to Main Page
+            </button>
+        </section>
+
+
 
         <!-- Recent Works Project Preview -->
         <div class="rw-modal-overlay" id="recentProjectOverlay" aria-hidden="true" onclick="if(event.target===this) closeRecentProject()">
@@ -2142,6 +2127,10 @@ body { overflow-x:hidden; }
                 modal.style.display = 'none';
                 document.body.style.overflow = '';
             }
+        }
+        function backToMainPage() {
+            closeSeoModal();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
     </script>
