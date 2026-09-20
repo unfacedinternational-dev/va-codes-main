@@ -455,6 +455,14 @@
         .hub-services { width:min(295px,23vw); height:min(295px,23vw); }
         .hub-seo { width:min(255px,20vw); height:min(255px,20vw); }
         .hub-other { width:min(220px,17vw); height:min(220px,17vw); }
+        .hub-works .hub-card-copy strong { font-size:clamp(1rem,1.15vw,1.18rem); }
+        .hub-works .hub-card-copy small { font-size:clamp(.72rem,.82vw,.88rem); max-width:245px; }
+        .hub-services .hub-card-copy strong { font-size:clamp(.94rem,1.08vw,1.12rem); }
+        .hub-services .hub-card-copy small { font-size:clamp(.69rem,.79vw,.84rem); max-width:225px; }
+        .hub-seo .hub-card-copy strong { font-size:clamp(.86rem,1vw,1rem); }
+        .hub-seo .hub-card-copy small { font-size:clamp(.64rem,.73vw,.78rem); max-width:205px; }
+        .hub-other .hub-card-copy strong { font-size:clamp(.78rem,.9vw,.9rem); }
+        .hub-other .hub-card-copy small { font-size:clamp(.59rem,.67vw,.7rem); max-width:180px; }
 
         .hub-card::before {
             content:"";
@@ -540,14 +548,19 @@
             font:900 clamp(.9rem,1.05vw,1.08rem)/1.22 'JetBrains Mono',monospace;
             letter-spacing:.35px;
             text-transform:uppercase;
-            text-shadow:0 2px 12px rgba(0,0,0,.9);
+            color:var(--hub-color);
+            text-shadow:0 0 14px var(--hub-glow),0 2px 12px rgba(0,0,0,.9);
         }
         .hub-card-copy small {
-            color:#e2e8f0;
+            color:#f1f5f9;
             font:500 clamp(.68rem,.78vw,.82rem)/1.48 'Plus Jakarta Sans',sans-serif;
             text-shadow:0 2px 10px rgba(0,0,0,.95);
             max-width:230px;
         }
+        .hub-works .hub-card-copy small { color:#bbf7d0; }
+        .hub-services .hub-card-copy small { color:#fbcfe8; }
+        .hub-seo .hub-card-copy small { color:#fef08a; }
+        .hub-other .hub-card-copy small { color:#bae6fd; }
         .hub-card-arrow {
             color:var(--hub-color);
             font-size:1.2rem;
