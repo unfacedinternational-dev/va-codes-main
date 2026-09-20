@@ -80,6 +80,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin main
+          git reset --mixed origin/main
           git add assets/project-thumbnails/*.png
           git rm -f .capture-project-thumbnails .github/workflows/capture-project-thumbnails.yml
           git commit -m "Add real project screenshots as portfolio thumbnails" || exit 0
