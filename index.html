@@ -1696,6 +1696,54 @@
             transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
         }
 
+        .featured-automation-grid {
+            display:grid;
+            grid-template-columns:repeat(2,minmax(0,1fr));
+            gap:20px;
+            margin-bottom:36px;
+        }
+        .featured-automation-card {
+            overflow:hidden;
+            border:1px solid var(--border);
+            border-radius:16px;
+            background:var(--card-bg);
+            box-shadow:0 14px 32px rgba(0,0,0,.18);
+        }
+        .featured-automation-thumb {
+            height:190px;
+            overflow:hidden;
+            background:#0f172a;
+        }
+        .featured-automation-thumb img {
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            object-position:top center;
+            display:block;
+        }
+        .featured-automation-body { padding:20px; }
+        .featured-automation-label {
+            font-size:.68rem;
+            font-weight:800;
+            letter-spacing:.12em;
+            color:#38bdf8;
+        }
+        .featured-automation-body h3 { margin:7px 0 8px; color:#fff; }
+        .featured-automation-body p { color:var(--text-muted); font-size:.88rem; line-height:1.6; margin-bottom:18px; }
+        .featured-automation-actions {
+            display:flex;
+            flex-wrap:wrap;
+            gap:8px;
+        }
+        .featured-automation-actions .btn-view {
+            text-decoration:none;
+            cursor:pointer;
+            border:1px solid var(--border);
+            background:rgba(15,23,42,.72);
+        }
+        @media(max-width:760px) {
+            .featured-automation-grid { grid-template-columns:1fr; }
+        }
         .ad-card:hover {
             transform: translateY(-6px);
             border-color: var(--border-glow);
@@ -2216,16 +2264,62 @@ body { overflow-x:hidden; }
                         <div class="section-title">Automation Systems</div>
                         <p class="other-services-tagline">Self-built systems designed to automate real business workflows and reduce repetitive work.</p>
 
-                        <div class="ad-grid">
-                            <div class="ad-card">
-                                <div class="ad-icon">⚖️</div>
-                                <h3>LexiFlow</h3>
-                                <p>Legal VA and attorney automation suite designed to organize legal workflows, streamline administrative tasks, and support law office operations.</p>
-                                <a href="https://legal-va-system.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-view">Open LexiFlow →</a>
-                            </div>
+                        <div class="featured-automation-grid">
+                            <article class="featured-automation-card">
+                                <div class="featured-automation-thumb">
+                                    <img src="assets/project-thumbnails/legal-va-portfolio.svg" alt="Legal VA Automation System">
+                                </div>
+                                <div class="featured-automation-body">
+                                    <span class="featured-automation-label">FEATURED AUTOMATION SYSTEM</span>
+                                    <h3>Legal VA Automation System</h3>
+                                    <p>LexiFlow, a legal VA and attorney automation suite for organizing legal workflows, deadlines, documents, time tracking, and administrative operations.</p>
+                                    <div class="featured-automation-actions">
+                                        <button type="button" class="btn-view" onclick="openFeaturedAutomation(0)">Preview</button>
+                                        <button type="button" class="btn-view" onclick="showFeaturedAutomationDetails(0)">Details</button>
+                                        <a href="https://legal-va-system.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-view">Live Site ↗</a>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="featured-automation-card">
+                                <div class="featured-automation-thumb">
+                                    <img src="assets/project-thumbnails/medical-va-automation.svg" alt="Medical VA Automation System">
+                                </div>
+                                <div class="featured-automation-body">
+                                    <span class="featured-automation-label">FEATURED AUTOMATION SYSTEM</span>
+                                    <h3>Medical VA Automation System</h3>
+                                    <p>A medical administrative automation system focused on patient intake, scheduling, records organization, communication, billing support, and workflow productivity.</p>
+                                    <div class="featured-automation-actions">
+                                        <button type="button" class="btn-view" onclick="openFeaturedAutomation(1)">Preview</button>
+                                        <button type="button" class="btn-view" onclick="showFeaturedAutomationDetails(1)">Details</button>
+                                        <a href="https://medical-va-automation-system-5oas.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-view">Live Site ↗</a>
+                                    </div>
+                                </div>
+                            </article>
                         </div>
                     </section>
                 </div>
+            </div>
+        </div>
+
+        <div class="rw-modal-overlay" id="featuredAutomationOverlay" aria-hidden="true" onclick="if(event.target===this) closeFeaturedAutomation()">
+            <div class="rw-modal" role="dialog" aria-modal="true" aria-labelledby="featuredAutomationTitle" onclick="event.stopPropagation()">
+                <div class="rw-modal-header">
+                    <h3 id="featuredAutomationTitle"></h3>
+                    <div class="rw-modal-actions">
+                        <a id="featuredAutomationLink" class="rw-full-project" href="#" target="_blank" rel="noopener noreferrer">View Full Project ↗</a>
+                        <button type="button" onclick="closeFeaturedAutomation()" class="rw-close">Close</button>
+                    </div>
+                </div>
+                <iframe id="featuredAutomationFrame" title="Featured automation preview"></iframe>
+            </div>
+        </div>
+
+        <div class="rw-modal-overlay" id="featuredAutomationDetailsOverlay" aria-hidden="true" onclick="if(event.target===this) closeFeaturedAutomationDetails()">
+            <div class="rw-info-modal" role="dialog" aria-modal="true" aria-labelledby="featuredAutomationDetailsTitle" onclick="event.stopPropagation()">
+                <button type="button" class="rw-info-close" onclick="closeFeaturedAutomationDetails()">Close</button>
+                <p class="rw-info-type">FEATURED AUTOMATION SYSTEM</p>
+                <h3 id="featuredAutomationDetailsTitle"></h3>
+                <div id="featuredAutomationDetailsBody" class="rw-info-body"></div>
             </div>
         </div>
 
@@ -2374,6 +2468,65 @@ body { overflow-x:hidden; }
         ];
 
         const PROJECT_DETAILS = [{"name":"Maharlika Philippines","category":"Investment App","language":"Not verified","stack":["Vercel deployment","Live web application"],"about":"A Philippine investment and portfolio web application presented with market focused screens and an investment oriented user experience.","features":["Market focused screens","Investment and portfolio presentation","Live production deployment"],"how":"Users enter the live investment experience, review the available market or portfolio information, and use the provided flows presented by the application.","helps":"Provides a web based way to present investment related information and portfolio activity in one accessible interface.","deliverables":["Language breakdown: repository not available through the connected GitHub account, so percentages were not guessed.","Production deployment and responsive interface","Investment focused screens and user flows","Live project presentation"],"codeMix":[]},{"name":"VA CODES","category":"Business Portfolio","language":"HTML 100% (GitHub repository language)","stack":["HTML","CSS","JavaScript","Google Fonts","Vercel","Real project screenshots captured from each live deployment"],"about":"The VA CODES business portfolio for automation, web development, business systems, customer support, and technical services.","features":["Services showcase","Live Recent Works project previews","Preview this project modal","Deliverables and About this project dialogs","Email and phone contact popup","Developer profile and portfolio navigation","Real project screenshot thumbnail"],"how":"Visitors browse services and recent deployments, open a project preview, review its deliverables or project details, then contact Joy through email or phone.","helps":"Gives potential clients one place to understand the services, see live work, inspect project details, and start a conversation.","deliverables":["HTML 100% repository language","CSS and JavaScript embedded in the HTML","Responsive business portfolio interface","Project preview modal and live deployment previews","Contact and service presentation system","Vercel deployment with real project screenshot thumbnails"],"codeMix":[["HTML",36.1],["CSS",43.1],["JavaScript",20.8]]},{"name":"JOY N COLLECTIVE","category":"E commerce Website","language":"Not verified","stack":["Vercel deployment","E commerce interface"],"about":"A premium online collection experience built around product discovery and e commerce presentation.","features":["Product focused storefront presentation","Collection and product discovery","E commerce navigation","Responsive shopping experience"],"how":"Visitors browse the collection, move through the storefront sections, and explore products through the online shopping interface.","helps":"Presents products in a polished storefront that helps customers discover a collection and move toward shopping actions.","deliverables":["Repository language breakdown not verified from the connected GitHub account","Live production storefront","Responsive e commerce interface","Product discovery and collection presentation"],"codeMix":[]},{"name":"My Pet Shop Online","category":"E commerce Website","language":"HTML 100% (single-file repository)","stack":["HTML","CSS","JavaScript","Fredoka","Work Sans","Space Mono"],"about":"Pawstolove is a pet supplies storefront for everyday food, treats, toys, grooming, and home products.","features":["Shop, Aisles, Why Pawstolove, Community navigation","Food & Treats, Toys, Grooming, Comfort & Home categories","Product shelf and product cards","Add to cart","Cart drawer","Quantity increase/decrease","Remove from cart","Checkout button","Order confirmation area","Shipping, Returns and Contact sections"],"how":"Customers browse categories and products, add items to the cart, adjust quantities, remove items, open the cart drawer, and proceed to checkout.","helps":"Creates a simple pet shopping experience that organizes products by need and keeps the cart interaction easy to use.","deliverables":["HTML 100% repository language","CSS styling embedded in the page","JavaScript cart logic embedded in the page","Responsive storefront layout","Working cart, quantity and remove interactions","Checkout and order confirmation interface"],"codeMix":[["HTML",42.5],["CSS",42.7],["JavaScript",14.9]]},{"name":"Makeup","category":"Beauty E commerce Website","language":"HTML 100% (React/Babel runtime embedded in HTML)","stack":["HTML","JavaScript","React 18","ReactDOM 18","Babel Standalone","CSS","CDN"],"about":"Blush & Bone is a beauty shopping application with customer authentication, product management, cart and checkout flows, receipt submission, orders, and an owner dashboard.","features":["Product browsing by category","Add to bag","Cart and quantity controls","Customer Log in","Customer Sign up","Log out","My orders","Checkout","Payment confirmation","Receipt upload","Submit for review","Owner login","Owner dashboard","Orders management","Approve/reject orders","Catalog management","Add product","Edit product","Delete product","Product photo removal/upload handling"],"how":"Customers sign up or log in, browse products, add items to the bag, checkout, confirm payment, upload a receipt and submit the order for review. The owner can log in separately, review orders, approve or reject them, and manage the product catalog.","helps":"Connects product discovery, customer accounts, order submission and owner review into one shopping workflow.","deliverables":["HTML 100% repository language; React/JavaScript runs inside the HTML page","React 18 + ReactDOM 18","Babel Standalone for JSX transformation","Customer authentication UI and order flow","Receipt upload and review workflow","Owner dashboard and catalog management"],"codeMix":[["HTML",1],["CSS",0.1],["JavaScript",98.9]]},{"name":"Master Reference Sheet","category":"Productivity Tool","language":"HTML 100% (single-file repository)","stack":["HTML","CSS","JavaScript","Highlight.js 11.9.0","XML language syntax highlighting"],"about":"A complete HTML master reference and cheat sheet covering forms, metadata, accessibility, interactive widgets, performance, global attributes and the Popover API.","features":["HTML input types and form fields reference","Advanced head and SEO metadata","Accessibility and WAI-ARIA reference","Focus control guidance","Interactive widgets, popups and gauges","Performance and resource loading","Modern global attributes","Popover API","Syntax highlighted code examples","Print complete reference sheet","Ctrl + P print support"],"how":"Users browse the reference sections, inspect highlighted code examples, and print the complete reference using the print button or browser print command.","helps":"Provides a structured single page reference for developers who need quick access to practical HTML patterns and examples.","deliverables":["HTML 100% repository language","CSS and JavaScript embedded in the page","Highlight.js 11.9.0 syntax highlighting","XML language highlighting support","Print optimized reference layout","Complete HTML reference sections"],"codeMix":[["HTML",67.9],["CSS",31.9],["JavaScript",0.2]]},{"name":"VA Profile Portfolio","category":"Executive VA Portfolio","language":"HTML 100% (GitHub repository language)","stack":["HTML","CSS","JavaScript","Cusdis","FormSubmit","Google Fonts"],"about":"Joy's Executive VA portfolio presents professional services, tools, resume information, sample work, client feedback, and direct service request options.","features":["Full resume viewer","Service request categories","Calendar and inbox scheduling","Document processing","Bookkeeping assistance","Legal document support","Social media management","Web page request","General inquiry","Discreet editing","Request Service flow","Sample work showcase","Client testimonials","Email and phone contact","Comment/testimonial interface"],"how":"Visitors review the profile and resume, choose the type of assistance they need, inspect sample work, and submit a service or inquiry request.","helps":"Makes it easier for prospective clients to understand available VA services, see supporting work, and contact Joy for a specific task.","deliverables":["HTML 100% repository language","Responsive portfolio presentation","Resume and service request interface","Sample work and testimonial sections","Cusdis comment/testimonial integration","Form-based contact/service request flow"],"codeMix":[["HTML",52.8],["CSS",38.2],["JavaScript",9]]},{"name":"Legal VA Portfolio","category":"Legal Virtual Assistant Portfolio","language":"HTML 100% (single-file repository)","stack":["HTML","CSS","JavaScript","Google Workspace","Clio","Asana","Trello","ClickUp","Notion","Adobe Acrobat Pro","MS Word/Excel","DocuSign","Lawdistrict/HotDocs","Slack","MS Teams","Zoom","Calendly","Toggl","LastPass/Bitwarden"],"about":"A specialized legal VA portfolio showing professional summary, competencies, work experience, legal workflow samples, document systems, and the software stack used for legal administrative support.","features":["Professional Summary","Core Competencies","Work Experience","Standardized Pleading & Motion Formatting","Legal File Taxonomy & Cloud Organization System","Medical Records Chronology & Billing Index","Client Intake & Onboarding Workflow Checklist","Deposition Transcript Page-Line Summary","Google Workspace tools","Practice management and workflow tools","Document processing and automation tools","Communication, time and security tools","Expandable tool explanations","Why Hire Me section","Interview/contact form"],"how":"Visitors review the legal VA profile, expand sample work and tool explanations, inspect workflow examples, and use the interview/contact section to reach Joy.","helps":"Shows attorneys and legal teams how administrative work, documents, deadlines, organization and communication can be supported remotely.","deliverables":["HTML 100% repository language","Interactive expandable portfolio sections","Legal workflow and sample deliverables","Google Workspace and legal software stack presentation","Tool usage explanations and scenarios","Interview/contact form"],"codeMix":[["HTML",61.3],["CSS",34.5],["JavaScript",4.2]]},{"name":"Medical VA Automation System","category":"Medical VA Automation System","language":"HTML 100% (single-file repository)","stack":["HTML","CSS","JavaScript","Google Calendar","Calendly","Microsoft Outlook","Google Drive","MS Office","Adobe Acrobat Pro","Zoom","MS Teams","Slack","Gmail","QuickBooks Online","ChatGPT","Claude","Fireflies.ai","Fathom"],"about":"A medical virtual assistant automation system focused on scheduling, patient intake, records organization, communication, billing support, and healthcare productivity workflows.","features":["Professional Summary","Core Competencies","Work Experience","Immediate Reschedule Request Handling","Incomplete Intake & Insurance Resolution","Proactive Calendar Conflict Resolution","HIPAA-conscious records sharing protocol","AI-assisted clinical summary workflow","Scheduling and calendar tools","EHR/admin/document management tools","Communication and billing tools","AI and healthcare productivity tools","Expandable tool explanations","Why Hire Me section","Interview/contact form"],"how":"Visitors review the medical VA profile and expand the sample scenarios and tool sections to see how scheduling, records, billing, communication and productivity workflows are handled.","helps":"Demonstrates how medical administrative workload can be organized so providers can spend more time on patient care.","deliverables":["HTML 100% repository language","Interactive expandable portfolio sections","Medical administrative workflow scenarios","Scheduling, records, billing and AI tool stack","Tool usage explanations","Interview/contact form"],"codeMix":[["HTML",51.6],["CSS",44.3],["JavaScript",4.1]]},{"name":"Real Estate VA Portfolio","category":"Real Estate Virtual Assistant Portfolio","language":"HTML 100% (single-file repository)","stack":["HTML","CSS","JavaScript","Follow Up Boss","KVCore","LionDesk","HubSpot","Zillow Premier Agent","Dotloop","DocuSign","SkySlope","MLS","Redfin","Zillow","PropStream","RealEstate.com","Google Workspace","Canva","Slack","Zoom","Calendly","Loom"],"about":"A specialized real estate VA and transaction coordinator portfolio covering listings, lead management, transactions, property research, marketing and communication.","features":["Professional Summary","Core Competencies","Work Experience","MLS Listing & Description Power-Pack","Contract-to-Close Transaction Roadmap","CRM Pipeline & Automated Drip Campaigns","Open House & Social Media Marketing Kit","Vendor Coordination & Inspection Tracker","Real estate CRM and lead technology","Transaction and document management","MLS and property research","Workspace, design and communication tools","Expandable tool explanations","Why Hire Me section","Interview/contact form"],"how":"Visitors review the portfolio, expand the real estate workflow and tool sections, inspect examples for listings, transactions, lead nurturing and marketing, then use the contact section to reach Joy.","helps":"Shows agents and brokers how lead follow-up, transaction coordination, listing work, property research and marketing tasks can be handled remotely.","deliverables":["HTML 100% repository language","Interactive expandable portfolio sections","Real estate workflow and transaction examples","CRM, MLS, transaction and marketing tool stack","Tool usage explanations and scenarios","Interview/contact form"],"codeMix":[["HTML",55.8],["CSS",40.3],["JavaScript",3.9]]}]
+
+        const FEATURED_AUTOMATION_SYSTEMS = [
+            {
+                name: 'Legal VA Automation System',
+                site: 'https://legal-va-system.vercel.app/',
+                about: 'LexiFlow is a legal VA and attorney automation suite designed to organize legal workflows, deadlines, documents, time tracking, and administrative operations.',
+                features: ['Legal intake organization','Deadline and workflow tracking','Document management','Time logging','Audit and activity records'],
+                how: 'Users enter the system, choose the appropriate access profile, and work through organized legal intake, deadlines, documents, time logs, and administrative workflows.',
+                helps: 'Demonstrates how repetitive legal administrative work can be structured into one practical workflow system.',
+                deliverables: ['Legal VA automation interface','Workflow and deadline organization','Document and time tracking','Employer and VA workflow views']
+            },
+            {
+                name: 'Medical VA Automation System',
+                site: 'https://medical-va-automation-system-5oas.vercel.app',
+                about: 'A medical administrative automation system focused on patient intake, scheduling, records organization, communication, billing support, and workflow productivity.',
+                features: ['Patient intake workflow','Scheduling and calendar support','Records and document organization','Communication workflows','Billing and administrative support'],
+                how: 'The system organizes common medical administrative processes into structured workflows for intake, scheduling, records, communication, and productivity support.',
+                helps: 'Demonstrates how medical administrative workload can be organized into a more consistent digital workflow.',
+                deliverables: ['Medical VA automation interface','Patient-care coordination workflows','Scheduling and records support','Administrative productivity tools']
+            }
+        ];
+
+        function openFeaturedAutomation(index) {
+            const project = FEATURED_AUTOMATION_SYSTEMS[index];
+            if (!project) return;
+            document.getElementById('featuredAutomationTitle').textContent = project.name;
+            document.getElementById('featuredAutomationLink').href = project.site;
+            document.getElementById('featuredAutomationFrame').src = project.site;
+            document.getElementById('featuredAutomationOverlay').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeFeaturedAutomation() {
+            const overlay = document.getElementById('featuredAutomationOverlay');
+            const frame = document.getElementById('featuredAutomationFrame');
+            if (frame) frame.src = 'about:blank';
+            if (overlay) overlay.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        function showFeaturedAutomationDetails(index) {
+            const project = FEATURED_AUTOMATION_SYSTEMS[index];
+            if (!project) return;
+            document.getElementById('featuredAutomationDetailsTitle').textContent = project.name;
+            document.getElementById('featuredAutomationDetailsBody').innerHTML =
+                '<p><strong>About this project</strong><br>' + project.about + '</p>' +
+                '<p><strong>How it works</strong><br>' + project.how + '</p>' +
+                '<p><strong>Helps with</strong><br>' + project.helps + '</p>' +
+                '<p><strong>Features</strong><br>• ' + project.features.join('<br>• ') + '</p>' +
+                '<p><strong>Deliverables</strong><br>• ' + project.deliverables.join('<br>• ') + '</p>';
+            document.getElementById('featuredAutomationDetailsOverlay').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeFeaturedAutomationDetails() {
+            const overlay = document.getElementById('featuredAutomationDetailsOverlay');
+            if (overlay) overlay.style.display = 'none';
+            document.body.style.overflow = '';
+        }
 
         function openProjectInfo(index, type) {
             const project = PROJECT_DETAILS[index];
