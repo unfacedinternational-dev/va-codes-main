@@ -383,7 +383,11 @@
         /* Explore Section: floating image orbs */
         .section-hub {
             margin: 8px 0 34px;
-            padding: 28px 22px 32px;
+            padding: 28px 0 32px;
+            width:100vw;
+            position:relative;
+            left:50%;
+            transform:translateX(-50%);
             border: 1px solid var(--border);
             border-radius: 22px;
             background:
@@ -410,7 +414,7 @@
         .section-hub-grid {
             display:grid;
             grid-template-columns:repeat(4,minmax(170px,1fr));
-            column-gap:clamp(48px,5vw,78px);
+            column-gap:clamp(10px,3.5vw,56px);
             row-gap:clamp(28px,3vw,42px);
             align-items:center;
             justify-items:center;
@@ -439,10 +443,10 @@
             transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease,filter .28s ease;
             animation:hubFloat 4.8s ease-in-out infinite;
         }
-        .hub-works { width:clamp(235px,22vw,270px); height:clamp(235px,22vw,270px); }
-        .hub-services { width:clamp(215px,20vw,245px); height:clamp(215px,20vw,245px); }
-        .hub-seo { width:clamp(195px,18vw,220px); height:clamp(195px,18vw,220px); }
-        .hub-other { width:clamp(170px,15vw,190px); height:clamp(170px,15vw,190px); }
+        .hub-works { width:min(270px,24vw); height:min(270px,24vw); }
+        .hub-services { width:min(245px,21vw); height:min(245px,21vw); }
+        .hub-seo { width:min(220px,18.5vw); height:min(220px,18.5vw); }
+        .hub-other { width:min(190px,16vw); height:min(190px,16vw); }
 
         .hub-card::before {
             content:"";
