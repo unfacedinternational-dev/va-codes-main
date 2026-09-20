@@ -147,6 +147,29 @@ footer{padding:24px 6vw 34px!important;background:#fff!important;color:#6b7280!i
 .item-more{margin-left:auto;color:#94a3b8;font-size:11px;opacity:.7}
 .item-clickable:hover .item-more{opacity:1;color:#0284c7}
 @media(max-width:800px){.item-clickable{padding:8px 4px 8px 0!important}}
+/* Unified color themes: every element inside each capability follows its box color */
+.cap{overflow:hidden}
+.cap:nth-of-type(1){--cap-color:#2563eb;--cap-soft:#eff6ff;--cap-mid:#dbeafe;--cap-deep:#1d4ed8}
+.cap:nth-of-type(2){--cap-color:#7c3aed;--cap-soft:#f5f3ff;--cap-mid:#ede9fe;--cap-deep:#6d28d9}
+.cap:nth-of-type(3){--cap-color:#059669;--cap-soft:#ecfdf5;--cap-mid:#d1fae5;--cap-deep:#047857}
+.cap:nth-of-type(4){--cap-color:#ea580c;--cap-soft:#fff7ed;--cap-mid:#ffedd5;--cap-deep:#c2410c}
+.cap:nth-of-type(5){--cap-color:#d97706;--cap-soft:#fffbeb;--cap-mid:#fef3c7;--cap-deep:#b45309}
+.cap:nth-of-type(6){--cap-color:#db2777;--cap-soft:#fdf2f8;--cap-mid:#fce7f3;--cap-deep:#be185d}
+.cap h3,.cap .cap-intro,.cap .item,.cap .row-title,.cap .work,.cap .work h4,.cap .work p,.cap .work small{color:var(--cap-color)!important}
+.cap .num{background:var(--cap-color)!important;color:#fff!important}
+.cap .items{background:var(--cap-soft)!important;border-color:var(--cap-mid)!important}
+.cap .item-clickable{color:var(--cap-color)!important;border-color:var(--cap-mid)!important}
+.cap .item-clickable:hover{background:var(--cap-mid)!important;color:var(--cap-deep)!important}
+.cap .item-more,.cap .sky{color:var(--cap-color)!important}
+.cap .toolbox-modern{background:var(--cap-soft)!important;border-color:var(--cap-mid)!important}
+.cap .tool-track{background:var(--cap-mid)!important}
+.cap .tool-track::before,.cap .tool-track::after{background:linear-gradient(90deg,var(--cap-soft),transparent)!important}
+.cap .tool-track::after{background:linear-gradient(270deg,var(--cap-soft),transparent)!important}
+.cap .tool-pill{background:var(--cap-mid)!important;border-color:var(--cap-color)!important;color:var(--cap-deep)!important}
+.cap .tool-pill i{color:var(--cap-color)!important}
+.cap .work{border-color:var(--cap-mid)!important;background:var(--cap-soft)!important}
+.cap .work .btn,.cap .cap-preview-btn,.cap .live-portal-link{border-color:var(--cap-color)!important;color:#fff!important;background:var(--cap-color)!important}
+.cap .real-estate-title-link{color:var(--cap-color)!important}
 </style>
 <body>
 <main class="wrap" style="padding:34px 0 20px">
