@@ -129,6 +129,16 @@ footer{padding:24px 6vw 34px!important;background:#fff!important;color:#6b7280!i
 @media(max-width:900px){.cap-service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.cap-service-grid{grid-template-columns:1fr}.tool-track::before,.tool-track::after{width:35px}}
 @media(prefers-reduced-motion:reduce){.tool-marquee{animation:none!important}}
+
+/* Keep every moving tools rail at the bottom of its capability box */
+.cap-body{display:flex!important;flex-direction:column!important}
+.cap-body>.items{order:1!important}
+.cap-body>.work{order:2!important}
+.cap-body>.toolbox-modern{order:3!important;margin-top:18px!important;margin-bottom:0!important}
+.cap-body>.toolbox-modern+.work{order:2!important}
+/* For services without sample work, tools remain last */
+.cap-body>.items~.toolbox-modern{order:3!important}
+.cap-body>.toolbox-modern~.work{order:2!important}
 </style>
 <body>
 <main class="wrap" style="padding:34px 0 20px">
