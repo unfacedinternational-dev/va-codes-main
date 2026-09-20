@@ -81,13 +81,37 @@
         }
 
         .nav-note {
+            position: relative;
             text-align: center;
             font-size: 13px;
             line-height: 1.6;
-            color: var(--text-muted, #9aa4b2);
+            color: #facc15;
             max-width: 780px;
             margin: -18px auto 30px;
-            padding: 0 20px;
+            padding: 14px 20px 14px 112px;
+            border: 1px solid rgba(250,204,21,.28);
+            border-radius: 10px;
+            background: rgba(250,204,21,.045);
+            box-shadow: 0 0 20px rgba(250,204,21,.06);
+        }
+        .nav-note::before {
+            content: "MUST READ";
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 6px 8px;
+            border: 1px solid #facc15;
+            border-radius: 6px;
+            color: #facc15;
+            background: rgba(250,204,21,.1);
+            font: 900 .62rem/1 'JetBrains Mono', monospace;
+            letter-spacing: .8px;
+            box-shadow: 0 0 12px rgba(250,204,21,.18);
+        }
+        @media (max-width:520px) {
+            .nav-note { padding: 44px 14px 14px; font-size: 12px; }
+            .nav-note::before { left: 50%; top: 10px; transform: translateX(-50%); }
         }
 
         .logo-wrap {
@@ -1750,13 +1774,15 @@ body { overflow-x:hidden; }
             </div>
         </nav>
 
+        <div class="nav-note">Every project, system, and piece of work showcased here is entirely crafted by the developer. This entire platform serves as a professional portfolio highlighting all the hands-on engineering capabilities. Please review the developer's complete information at the bottom of the page, as every profile element, including all the automation projects listed here, reflects the developer's individual work and expertise.</div>
+
         <!-- Hero Banner -->
         <header class="hero">
             <div class="hero-side-img left"><img src="assets/hero/macbook-code.jpg" alt=""></div>
             <div class="hero-side-img right"><img src="assets/hero/hood-figure.jpg" alt=""></div>
             <div class="hero-eyebrow">&lt;/&gt; Full-Stack, Front-End &amp; Back-End Development</div>
             <h1>Website Development and <span class="highlight">IT Services</span></h1>
-            <p>Delivering specialized technical solutions, web development projects, and remote administrative support services.</p>
+            <p>Delivering specialized technical solutions, web development projects, and automation systems.</p>
         </header>
 
         <!-- Tech Stack Marquee -->
