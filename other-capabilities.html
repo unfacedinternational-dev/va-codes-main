@@ -170,6 +170,34 @@ footer{padding:24px 6vw 34px!important;background:#fff!important;color:#6b7280!i
 .cap .work{border-color:var(--cap-mid)!important;background:var(--cap-soft)!important}
 .cap .work .btn,.cap .cap-preview-btn,.cap .live-portal-link{border-color:var(--cap-color)!important;color:#fff!important;background:var(--cap-color)!important}
 .cap .real-estate-title-link{color:var(--cap-color)!important}
+/* Final capability palette: each box and all of its contents stay in one color family */
+.cap:nth-of-type(1){--theme:#ec4899;--soft:#fdf2f8;--mid:#fbcfe8;--pale:#fce7f3;--deep:#be185d}
+.cap:nth-of-type(2){--theme:#16a34a;--soft:#f0fdf4;--mid:#bbf7d0;--pale:#dcfce7;--deep:#15803d}
+.cap:nth-of-type(3){--theme:#a16207;--soft:#fffbeb;--mid:#fde68a;--pale:#fef3c7;--deep:#854d0e}
+.cap:nth-of-type(4){--theme:#7c3aed;--soft:#f5f3ff;--mid:#ddd6fe;--pale:#ede9fe;--deep:#6d28d9}
+.cap:nth-of-type(5){--theme:#2563eb;--soft:#eff6ff;--mid:#bfdbfe;--pale:#dbeafe;--deep:#1d4ed8}
+.cap:nth-of-type(6){--theme:#dc2626;--soft:#fef2f2;--mid:#fecaca;--pale:#fee2e2;--deep:#b91c1c}
+
+.cap{border-color:var(--theme)!important;background:var(--soft)!important;box-shadow:0 8px 26px color-mix(in srgb,var(--theme) 18%,transparent)!important}
+.cap h3,.cap .cap-intro,.cap .item,.cap .item .sky,.cap .row-title,.cap .work,.cap .work h4,.cap .work p,.cap .work small,.cap .real-estate-title-link{color:var(--theme)!important}
+.cap .cap-intro{opacity:.9}
+.cap .items{background:var(--pale)!important;border-color:var(--mid)!important}
+.cap .item-clickable{background:transparent!important;color:var(--theme)!important;border-color:var(--mid)!important}
+.cap .item-clickable:hover{background:var(--mid)!important;color:var(--deep)!important}
+.cap .item-more{color:var(--theme)!important}
+.cap .work{background:var(--pale)!important;border-color:var(--mid)!important}
+.cap .toolbox-modern{background:var(--pale)!important;border-color:var(--mid)!important}
+.cap .toolbox-modern .row-title{color:var(--theme)!important}
+.cap .tool-track{background:var(--mid)!important}
+.cap .tool-track::before{background:linear-gradient(90deg,var(--pale),transparent)!important}
+.cap .tool-track::after{background:linear-gradient(270deg,var(--pale),transparent)!important}
+.cap .tool-pill{background:var(--soft)!important;border-color:var(--theme)!important;color:var(--deep)!important;box-shadow:0 4px 12px color-mix(in srgb,var(--theme) 12%,transparent)!important}
+.cap .tool-pill i{color:var(--theme)!important}
+.cap .cap-service-btn{background:var(--soft)!important;border-color:var(--mid)!important;color:var(--theme)!important}
+.cap .cap-service-btn i{color:var(--theme)!important}
+.cap .cap-service-btn:hover{background:var(--pale)!important;border-color:var(--theme)!important;color:var(--deep)!important}
+.cap .btn.primary,.cap .cap-preview-btn,.cap .live-portal-link{background:var(--theme)!important;border-color:var(--theme)!important;color:#fff!important}
+.cap .btn.primary:hover,.cap .cap-preview-btn:hover,.cap .live-portal-link:hover{background:var(--deep)!important;border-color:var(--deep)!important}
 </style>
 <body>
 <main class="wrap" style="padding:34px 0 20px">
