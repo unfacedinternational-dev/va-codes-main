@@ -376,8 +376,8 @@
         }
         .hub-card {
             position:relative;
-            width:clamp(170px,19vw,220px);
-            height:clamp(170px,19vw,220px);
+            width:clamp(210px,20vw,250px);
+            height:clamp(210px,20vw,250px);
             padding:26px 22px;
             border:2px solid var(--hub-color,#38bdf8);
             border-radius:50%;
@@ -454,8 +454,8 @@
             background-image:url('use.image/4.webp');
         }
         .hub-card-icon {
-            width:42px;
-            height:42px;
+            width:38px;
+            height:38px;
             flex:none;
             display:grid;
             place-items:center;
@@ -479,7 +479,7 @@
             z-index:1;
         }
         .hub-card-copy strong {
-            font:800 .74rem/1.28 'JetBrains Mono',monospace;
+            font:900 .82rem/1.28 'JetBrains Mono',monospace;
             letter-spacing:.35px;
             text-transform:uppercase;
             text-shadow:0 2px 12px rgba(0,0,0,.9);
@@ -504,14 +504,14 @@
         }
         @media (max-width:980px) {
             .section-hub-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
-            .hub-card { width:clamp(185px,32vw,220px); height:clamp(185px,32vw,220px); }
+            .hub-card { width:clamp(205px,34vw,240px); height:clamp(205px,34vw,240px); }
         }
         @media (max-width:520px) {
             .section-hub { padding:24px 12px 28px; }
             .section-hub-grid { grid-template-columns:1fr 1fr; gap:12px; }
-            .hub-card { width:clamp(145px,43vw,185px); height:clamp(145px,43vw,185px); padding:20px 15px; }
+            .hub-card { width:clamp(165px,44vw,200px); height:clamp(165px,44vw,200px); padding:20px 15px; }
             .hub-card-icon { width:34px; height:34px; font-size:.9rem; }
-            .hub-card-copy strong { font-size:.59rem; line-height:1.3; }
+            .hub-card-copy strong { font-size:.66rem; line-height:1.3; }
             .hub-card-copy small { font-size:.53rem; line-height:1.35; max-width:135px; }
             .hub-card-arrow { font-size:.85rem; }
         }
@@ -1855,8 +1855,17 @@ body { overflow-x:hidden; }
                 <p>Keep the homepage focused. Open any section below to view the full details, projects, workflows, and services.</p>
             </div>
             <div class="section-hub-grid">
+                <button type="button" class="hub-card hub-works" onclick="openHubModal('worksHubModal')" aria-controls="worksHubModal">
+                    <span class="hub-card-icon">▦</span>
+                    <span class="hub-card-copy">
+                        <strong>RECENT WORKS, AUTOMATIONS, WEBSITES &amp; DEPLOYMENTS</strong>
+                        <small>Browse live projects, automation systems, websites, deployments, previews, deliverables, and project details.</small>
+                    </span>
+                    <span class="hub-card-arrow" aria-hidden="true">↗</span>
+                </button>
+
                 <button type="button" class="hub-card hub-services" onclick="openHubModal('servicesHubModal')" aria-controls="servicesHubModal">
-                    <span class="hub-card-icon">✦</span>
+                    <span class="hub-card-icon">⚙</span>
                     <span class="hub-card-copy">
                         <strong>SERVICES</strong>
                         <small>Website development, automation, web apps, business systems, integrations, maintenance, and technical support.</small>
@@ -1864,11 +1873,11 @@ body { overflow-x:hidden; }
                     <span class="hub-card-arrow" aria-hidden="true">↗</span>
                 </button>
 
-                <button type="button" class="hub-card hub-works" onclick="openHubModal('worksHubModal')" aria-controls="worksHubModal">
-                    <span class="hub-card-icon">⌘</span>
+                <button type="button" class="hub-card hub-other" onclick="openHubModal('otherServicesHubModal')" aria-controls="otherServicesHubModal">
+                    <span class="hub-card-icon">◈</span>
                     <span class="hub-card-copy">
-                        <strong>RECENT WORKS, AUTOMATIONS, WEBSITES &amp; DEPLOYMENTS</strong>
-                        <small>Browse live projects, automation systems, websites, deployments, previews, deliverables, and project details.</small>
+                        <strong>OTHER SERVICES</strong>
+                        <small>Explore additional VA support, administrative services, specialized workflows, and practical business tools.</small>
                     </span>
                     <span class="hub-card-arrow" aria-hidden="true">↗</span>
                 </button>
@@ -1878,15 +1887,6 @@ body { overflow-x:hidden; }
                     <span class="hub-card-copy">
                         <strong>SEO &amp; SEARCH OPTIMIZATION</strong>
                         <small>See how technical structure, content, search intent, indexing, and measurement work together to improve discoverability.</small>
-                    </span>
-                    <span class="hub-card-arrow" aria-hidden="true">↗</span>
-                </button>
-
-                <button type="button" class="hub-card hub-other" onclick="openHubModal('otherServicesHubModal')" aria-controls="otherServicesHubModal">
-                    <span class="hub-card-icon">＋</span>
-                    <span class="hub-card-copy">
-                        <strong>OTHER SERVICES</strong>
-                        <small>Explore additional VA support, administrative services, specialized workflows, and practical business tools.</small>
                     </span>
                     <span class="hub-card-arrow" aria-hidden="true">↗</span>
                 </button>
