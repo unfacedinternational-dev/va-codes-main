@@ -227,8 +227,12 @@
 
         @media (max-width: 600px) {
             .hero h1 {
-                font-size: clamp(1.1rem, 5.2vw, 1.5rem);
-                white-space: nowrap;
+                font-size: clamp(1.05rem, 5.2vw, 1.5rem);
+                white-space: normal;
+                overflow-wrap: anywhere;
+                word-break: normal;
+                max-width: 100%;
+                line-height: 1.18;
             }
         }
 
