@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://va-codes.vercel.app/sitemap.xml
+Sitemap: https://va-codes-main.vercel.app/sitemap.xml
